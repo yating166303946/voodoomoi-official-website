@@ -1,0 +1,15 @@
+{
+  "name": "voodoomoi-official-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yating166303946/voodoomoi-official-website.git",
+  "author": "yating <tomato480110@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "liquidjs": "^10.21.1"
+  },
+  "scripts": {
+    "render": "node render.js"
+  }
+}
