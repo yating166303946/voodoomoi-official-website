@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="PostList row" col-class="col-md-4">
+    <!-- PostList -->
+    {% for post in posts %}
+      <div class="List-item col-md-4 col-eq-height" >
+        <h2 class="List-item-title">
+            <a href="/blog/posts/{{ post.id }}"> {{ post.title }} </a>
+        </h2>
+        <div class="List-item-content" ng-non-bindable>
+          <a href="/blog/posts/{{ post.id }}">{{ post.excerpt }} </a>
+          <div class="List-item-date" style="background-image: url({{ shop.mobile_logo | img_url: 'x140' }})">
+            <span class="dateline">{{ post.date }}</span>
+            <span class="readmore"><a href="/blog/posts/{{ post.id }}">READ MORE</a></span>
+          </div>        
+        </div>
+      </div>
+    {% endfor %}
+    <!-- PostList End -->
+
+    <!-- PostList Pagination -->
+    {% if paginate.pages > 1 %}
+      <div class="text-center">
+        <ul class="pagination">
+          {% if paginate.previous.is_link %}
+            <li>
+              <a class="Label" href="{{ paginate.previous.url }}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            </li>
+          {% endif %}
+          {% for part in paginate.parts %}
+            <li class="{% if part.page == paginate.current_page %}active{% endif %}"><a class="Label" href="{{ part.handle }}">{{ part.title }}</a></li>
+          {% endfor %}
+          {% if paginate.next.is_link %}
+            <li>
+              <a class="Label" href="{{ paginate.next.url }}"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
+    <!-- PostList Pagination End -->
+  </div>
+</div>

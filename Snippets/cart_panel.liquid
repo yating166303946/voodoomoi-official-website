@@ -1,0 +1,10 @@
+<div id="cart-panel" class="CartPanel" style="display:none">
+  <div class="CartPanel-section">
+    <!-- Cart Header -->
+    <div class="CartPanel-header">
+      {{ 'shopline_translations.cart.title' | translate }}
+    </div>
+
+    {% cart_panel_items %}{% end_cart_panel_items %}
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<a href="{{ product.url }}" {{ product.ga_click_tag }} class="quick-cart-item">
+  <div class="boxify-image-wrapper">
+    <div class="boxify-image center-contain {% if product.sold_out and shop.sold_out_enabled %}out-of-stock{% endif %}" style="background-image:url({{ product.image.src }})" >
+      {% unless product.sold_out and shop.sold_out_enabled %}
+        <div class="btn-add-to-cart hidden-xs hidden-sm">{{'shopline_translations.product.quick_cart.add_to_cart' | translate}}</div>
+      {% endunless %}
+    </div>
+    {% if product.sold_out and shop.sold_out_enabled %}
+      <div class="sold-out-item-content">
+        <div class="sold-out-item">{{'shopline_translations.product.sold_out' | translate}}</div>
+      </div>
+    {% endif %}
+  </div>
+  <div class="info-box">
+    <div class="info-box-inner-wrapper">
+      <div class="title text-primary-color">{{ product.title }}</div>
+      <div class="quick-cart-price">
+        {% if product.hide_price == false %}
+          {% if product.price_varies %}
+            <div class="global-primary dark-primary price">
+              {{ product.price_min }}
+            </div>
+          {% else %}
+            <div class="global-primary dark-primary price {% if product.on_sale %}price-crossed{% endif %}">{{ product.price }}</div>
+            {% if product.on_sale %}
+              <div class="price-sale price">{{ product.sale_price }}</div>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      </div>
+      <span class="btn-add-to-cart mobile-cart visible-xs visible-sm {% if product.sold_out and shop.sold_out_enabled %}sold-out-item{% endif %}"><i class="fa fa-shopping-cart"></i></span>
+      {% if theme.key == "swanky" and theme.settings.hover_style == "swanky.box" %}
+      <div class="btn-add-to-cart hidden-xs hidden-sm"> {{ 'shopline_translations.product.quick_cart.add_to_cart' | translate }} </div>
+      {% endif %}
+    </div>
+  </div>
+</a>

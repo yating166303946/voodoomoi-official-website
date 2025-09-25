@@ -1,0 +1,78 @@
+<html lang="{{ shop.current_locale.code }}">
+  <head>
+    <meta charset="utf-8">
+    <title>This Shop is Closed</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+      * {
+        font-family: "Source Sans Pro","Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;  
+      }
+      html, body {
+        height: 100%;
+        background-color: #f1f1f1;
+      }
+      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        margin: 0 auto -235px; /* the bottom margin is the negative value of the footer's height */
+        text-align: center;
+        padding: 0px 30px;
+      }
+      .footer, .push {
+        height: 235px; /* .push must be the same height as .footer */
+      }
+      .title {
+        font-size: 600%;
+        font-weight: 900;
+        color:rgba(0,0,0,0.3);
+        line-height: 100px;
+        margin-bottom: 15px;
+        padding-top: 80px;
+        letter-spacing: -1px;
+      }   
+      .engtext {
+        font-size: 140%;
+        font-weight: 800;
+        color:rgba(0,0,0,0.7);
+        line-height: 50px;
+      }
+      .chitext {
+        font-size: 140%;
+        font-weight: 800;
+        color:rgba(0,0,0,0.7);
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      @media (max-width: 767px) {
+        .title {
+          margin-top: 20px;
+        }
+        .footer, .push {
+          height: 130px; /* .push must be the same height as .footer */
+        }
+        .wrapper {
+          margin: 0 auto -130px; /* the bottom margin is the negative value of the footer's height */
+        }
+        .engtext {
+          line-height: 30px;
+          margin-bottom: 20px;
+        }
+        .chitext {
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">SHOP CLOSED</div>
+      <div class="engtext">Sorry, the shop you are looking for is closed right now, please try again later.</div>
+      <div class="chitext">謝謝光臨！對不起我們現在休息中，很快重開。</div>
+      <div class="push"></div>
+    </div>
+    <div class="footer"></div>
+  </body>
+</html>

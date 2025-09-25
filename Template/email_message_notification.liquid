@@ -1,0 +1,24 @@
+<p>
+  Hi {{ message.recipient.name }}, you have got a message
+</p>
+<div>
+  <div style="background-image:url('{{ message.sender.image_url }}'); background-size: 50px; background-color: #efefef; background-position: center; background-size: cover; background-repeat: no-repeat; width: 50px; height: 50px; float: left; margin-right: 15px; border-radius: 50%;"></div>
+  <div style="float:right;font-size:11px;color: #aaa;">{{ message.created_at | date: "%b %d, %Y" }}</div>
+  <div class="" style="background-color: #EEF0F2; padding: 10px; border-radius: 10px; width: auto; font-size: 13px; font-family: Verdana, Geneva, sans-serif; float: left; position: relative; max-width: 300px; line-height: 16px;">
+    <div style="font-weight:600;margin-bottom:5px;">{{ message.sender.name }}</div>
+    <div>
+      {{ message.content }}
+      {% if message.image %}
+        <img style="display: block; max-width: 100%; margin-top: 10px; border-radius: 5px;" src="{{ message.image.src }}" />
+      {% endif %}
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <div style="clear:both"></div>
+</div>
+<div style="margin: 10px 0; height: 1px; background-color: #efefef;"></div>
+<a href="{{ action_link }}" style="color: #666; text-decoration: none;">
+  <div style="padding: 10px 12px; font-size: 12px; background-color: #efefef; border-radius: 15px;">
+    Click to reply
+  </div>
+</a>

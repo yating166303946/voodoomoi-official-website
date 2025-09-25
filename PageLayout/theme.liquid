@@ -1,0 +1,33 @@
+<html lang="{{ shop.current_locale.code }}">
+  <head>
+    <!-- layouts/head.liquid -->
+    {{ content_for_header }}
+    {{ 'menu.js' | asset_source }}
+    {{ 'custom.css' | asset_source }}
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+     
+  </head>
+
+  {% body { classes: 'mix-navigation-fixed' } %}
+    {% if page.identifier != 'express_checkout' %}
+      {% include 'navigation_bar_desktop.liquid' %}
+      {% include 'navigation_bar_mobile.liquid' %}
+    {% endif %}
+
+    {% include 'cart_panel.liquid' %}
+    {% include 'menu_panel.liquid' %}
+    {% include 'language_panel.liquid' %}
+    {% include 'currency_panel.liquid' %}
+
+    <div id="Content">
+      {{ content_for_layout }}
+      {% include 'page_home.liquid' %}
+      
+    </div>
+
+    {% if page.identifier != 'express_checkout' and page.identifier != 'checkout' %}
+      {% include 'footer.liquid' %}
+    {% endif %}
+  {% endbody %}
+</html>

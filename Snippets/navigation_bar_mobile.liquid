@@ -1,0 +1,37 @@
+<nav class="NavigationBar mod-mobile hidden-lg">
+  <div class="NavigationBar-container">
+    <ul class="NavigationBar-actionMenu pull-left">
+      <li class="List-item">
+        <div class="NavigationBar-actionMenu-button sl-menu-panel-toggle">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+      </li>
+    </ul>
+    <a class="NavigationBar-logo" href="/" style="background-image: url({{ shop.mobile_logo | img_url: 'x140' }})"></a>
+    <ul class="NavigationBar-actionMenu pull-right">
+      {% if customer == blank %}
+        <!-- Sign-in button -->
+        <li class="List-item">
+          <a href="/users/sign_in" class="NavigationBar-actionMenu-button">
+            <span class="fa fa-user"></span>
+          </a>
+        </li>
+      {% else %}
+        <!-- Member Center button -->
+        <li class="List-item">
+          <a href="/users/{{ customer.id }}/edit" class="NavigationBar-actionMenu-button">
+            <span class="fa fa-user-circle"></span>
+          </a>
+        </li>
+      {% endif %}
+
+      <!-- Cart panel toggle -->
+      <li class="List-item">
+        <a class="NavigationBar-actionMenu-button CartPanel-toggleButton sl-cart-toggle">
+          <span class="fa fa-shopping-cart"></span>
+          <span class="Cart-count sl-cart-count"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

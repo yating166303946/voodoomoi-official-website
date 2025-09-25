@@ -1,0 +1,72 @@
+<html lang="{{ shop.current_locale.code }}">
+  <head>
+    <meta charset="utf-8">
+    <title>We are Upgrading | 我們正在提升系統</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title"><img src="https://s3-ap-southeast-1.amazonaws.com/static.shoplineapp.com/web/v1/img/under_construction.png"></div>
+      <div class="engtext">
+        <p>Opps! Something went wrong.</p>
+        <p>We’re checking the problem and will be back soon.</p>
+        <p>Please try again later by refreshing the page.</p>
+      </div>
+      <div class="chitext">
+        <p>對不起！網頁遇到非預期的狀況。</p>
+        <p>我們正在檢查問題並修復中，馬上回來！</p>
+        <p>請稍後再重新整理此頁面。</p>
+      </div>
+    </div>
+    <style>
+      * {
+        font-family: "Source Sans Pro","Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;  
+      }
+      html, body {
+        height: 100%;
+        background-color: #f1f1f1;
+      }
+      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        margin: 0 auto -235px;
+        text-align: center;
+        padding: 0px 30px;
+      }
+      .title{
+        font-size: 600%;
+        font-weight: 900;
+        color:rgba(0,0,0,0.3);
+        line-height: 100px;
+        margin-bottom: 15px;
+        padding-top: 80px;
+        letter-spacing: -1px;
+      }   
+      .engtext, .chitext{
+        font-size: 140%;
+        font-weight: 800;
+        color:rgba(0,0,0,0.7);
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      @media (max-width: 767px) {
+        .title{
+          padding-top: 20px;
+        }
+        .wrapper {
+          margin: 0 auto -130px;
+        }   
+        .engtext{
+          line-height: 30px;
+          margin-bottom: 20px;
+        }
+        .chitext{
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<html lang="{{ shop.current_locale.code }}">
+  <head>
+    <meta charset="utf-8">
+    <title>Not Found</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">404</div>
+      <div class="engtext">Page Not Found.</div>
+      <div class="chitext">找不到網頁</div>
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <div class="logo"><a href="http://www.shoplineapp.com/"><img src="{{ system.static_asset_root }}/footer/logo-powered-by-dark.png" width="170" height="45"></a></div>
+    </div>
+    <style>
+      * {
+        font-family: "Source Sans Pro","Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+      }
+      html, body {
+        height: 100%;
+        background-color: #f1f1f1;
+      }
+      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        margin: 0 auto -235px;
+        text-align: center;
+        padding: 0px 30px;
+      }
+      .footer, .push {
+        height: 235px;
+      }
+      .title{
+        font-size: 600%;
+        font-weight: 900;
+        color:rgba(0,0,0,0.3);
+        line-height: 100px;
+        margin-bottom: 15px;
+        padding-top: 80px;
+        letter-spacing: -1px;
+      }
+      .engtext{
+        font-size: 140%;
+        font-weight: 800;
+        color:rgba(0,0,0,0.7);
+        line-height: 50px;
+      }
+      .chitext{
+        font-size: 140%;
+        font-weight: 800;
+        color:rgba(0,0,0,0.7);
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      .logo{
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 40px;
+      }
+      @media (max-width: 767px) {
+        .title{
+          padding-top: 20px;
+        }
+        .footer, .push {
+          height: 130px;
+        }
+        .wrapper {
+          margin: 0 auto -130px;
+        }
+        .engtext{
+          line-height: 30px;
+          margin-bottom: 20px;
+        }
+        .chitext{
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </body>
+</html>

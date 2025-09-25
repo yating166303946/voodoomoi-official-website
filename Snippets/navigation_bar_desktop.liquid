@@ -1,0 +1,110 @@
+<nav class="NavigationBar mod-desktop visible-lg">
+  <div class="NavigationBar-container">
+    {% if page.identifier != 'checkout' %}
+      <ul class="NavigationBar-mainMenu pull-left">
+        {% for link in linklists.main-menu.links %}
+          {% if link.children != empty %}
+            <li class="List-item NavigationBar-nestedList List-mother">
+              <!-- Link with children links -->
+              <a class="Label" link-highlight="{{ link.url }}" href="{{ link.url }}" target="{{ link.target }}">
+                {{ link.title }} <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="NavigationBar-nestedList-dropdown">
+                {% for sublink in link.children.links %}
+                  <li class="List-item">
+                    <a class="Label" link-highlight="{{ link.url }}" href="{{ sublink.url }}" target="{{ sublink.target }}">
+                      {{ sublink.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="List-item">
+              <a class="Label" link-highlight="{{ link.url }}" href="{{ link.url }}" target="{{ link.target }}">{{ link.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <a class="NavigationBar-logo" href="/" style="background-image: url({{ shop.logo | img_url: 'x140' }})"></a>
+    {% if page.identifier != 'checkout' %}
+      <ul class="NavigationBar-actionMenu pull-right">
+        <!-- Language chooser -->
+        <li class="List-item">
+          <div class="NavigationBar-actionMenu-button App-languageDropdown dropdown" dropdown>
+            <div class="dropdown-toggle" dropdown-toggle>
+              <span class="fa fa-globe"></span>
+              <span class="Label">{{ shop.current_locale.name }}</span>
+              <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="NavigationBar-actionMenu-dropdown dropdown-menu sl-language-chooser">
+              {% for locale in shop.supported_locales %}
+                <li class="List-item sl-language-chooser-language" href="#{{ locale.code }}">{{ locale.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+
+        <!-- Currency chooser -->
+        {% if shop.multicurrency_enabled %}
+        <li class="List-item">
+          <div class="NavigationBar-actionMenu-button App-currencyDropdown dropdown" dropdown>
+            <div class="dropdown-toggle" dropdown-toggle>
+              <span class="Label"><span class="fa fa-dollar"></span></span>
+              <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="NavigationBar-actionMenu-dropdown dropdown-menu sl-currency-chooser">
+              {% for currency in shop.supported_currencies %}
+                <li class="List-item sl-currency-chooser-currency" href="#{{ currency.iso_code }}">{{ currency.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        {% endif %}
+
+        <!-- Messages -->
+        {% if shop.messages_enabled %}
+        <li class="List-item">
+          <a class="NavigationBar-actionMenu-button MessageDialog-showButton sl-message-toggle">
+            <span class="fa fa-comments-o"></span>
+          </a>
+        </li>
+        {% endif %}
+
+        <li class="List-item">
+          <div class="NavigationBar-actionMenu-button Product-searchField">
+            <form class="Product-searchField-form sl-product-search">
+              <input disabled maxlength="100" placeholder="{{ 'shopline_translations.themes.search' | translate }}">
+              <button disabled type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </li>
+
+        {% if customer == blank %}
+          <!-- Sign-in button -->
+          <li class="List-item">
+            <a href="/users/sign_in" class="NavigationBar-actionMenu-button">
+              <span class="fa fa-user"></span>
+            </a>
+          </li>
+        {% else %}
+          <!-- Member Center button -->
+          <li class="List-item">
+            <a href="/users/{{ customer.id }}/edit" class="NavigationBar-actionMenu-button">
+              <span class="fa fa-user-circle"></span>
+            </a>
+          </li>
+        {% endif %}
+
+        <!-- Cart panel toggle -->
+        <li class="List-item">
+          <a class="NavigationBar-actionMenu-button CartPanel-toggleButton sl-cart-toggle">
+            <span class="fa fa-shopping-cart"></span>
+            <span class="Cart-count sl-cart-count"></span>
+          </a>
+        </li>
+      </ul>
+    {% endif %}
+  </div>
+</nav>

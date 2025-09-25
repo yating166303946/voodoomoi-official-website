@@ -1,0 +1,15 @@
+<div id="CurrencyPanel" class="MenuPanel" style="display: none;">
+  <div class="MenuPanel-section">
+    <div class="MenuPanel-section-header sl-currency-menu-close">
+      <span class="fa fa-chevron-left"></span>
+      {{ 'shopline_translations.themes.menu_panel.currency' | translate }}
+    </div>
+    <ul class="sl-currency-chooser" id="menu-others-currency">
+      {% for currency in shop.supported_currencies %}
+        <li class="List-item">
+          <a class="Label sl-currency-chooser-currency" href="#{{ currency.iso_code }}">{{ currency.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

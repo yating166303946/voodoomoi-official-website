@@ -1,0 +1,118 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="ProductList-breadcrumb hidden-xs">
+      <a class="Label" href="/products">{{ 'shopline_translations.themes.products.view_all' | translate }}</a>
+      {% if category %}
+        / <span class="Label" href="{{ category.handle }}">{{ category.title }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <!-- Side bar -->
+  <div class="col-md-3 hidden-xs hidden-sm">
+    {% if categories != empty %}
+      <h3>
+        {{ 'shopline_translations.themes.menu_panel.categories' | translate }}
+      </h3>
+      <ul class="ProductList-categoryMenu">
+        {% for category in categories %}
+          {% if category.children != empty %}
+            <li class="List-item ProductList-nestedList sl-dropdown"
+                is-collapsed="{{ theme.settings.categories_collapsed }}"
+                is-mobile-collapsed="{{ theme.settings.mobile_categories_collapsed }}">
+              <a class="Label" link-highlight="{{ category.handle }}" href="{{ category.handle }}">
+                {{ category.title }}
+                <i class="fa sl-dropdown-toggle pull-right" data-toggle="collapse" href="#product-list-nested-list-{{ category.id }}"></i>
+              </a>
+              <ul class="ProductList-nestedList-dropdown sl-dropdown-list collapse" id="product-list-nested-list-{{ category.id }}">
+                {% for subcategory in category.children %}
+                  <li class="List-item">
+                    <a class="Label" link-highlight="{{ subcategory.handle }}" href="{{ subcategory.handle }}">
+                      {{ subcategory.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="List-item">
+              <a class="Label" link-highlight="{{ category.handle }}" href="{{ category.handle }}">
+                {{ category.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  <div class="col-md-9">
+    {% if category_banner != blank %}
+      <div class="ProductList-categoyBanner">
+        {% category_banner %}{% end_category_banner %}
+      </div>
+    {% endif %}
+
+    <div class="ProductList-info">
+      <div class="ProductList-settings form sl-products-list-settings">
+        <select class="ProductList-settings-sorting form-control sl-products-sorting" disabled>
+          <option value="" {% if !paginate.selected_sort_option %}selected{% endif %}>{{ 'shopline_translations.themes.products.sort_options.title' | translate }}</option>
+          {% for option in paginate.sort_options %}
+            <option value="{{ option.value }}" {% if option.value == paginate.selected_sort_option %}selected{% endif %}>{{ option.title }}</option>
+          {% endfor %}
+        </select>
+        <select class="ProductList-settings-limit form-control sl-products-limit" disabled>
+          {% for option in paginate.limit_options %}
+            <option value="{{ option.value }}" {% if option.value == paginate.page_size %}selected{% endif %}>{{ option.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <h2 class="Label">
+        {% if category %}
+          {{ category.title }}
+        {% else %}
+          {{ 'shopline_translations.themes.products.view_all' | translate }}
+        {% endif %}
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 ProductList-list">
+        {% for product in products %}
+          {% if theme.settings.enabled_quick_cart %}
+            {% quick_product_thumb %} {% end_quick_product_thumb %}
+          {% else %}
+            {% product_thumb %} {% end_product_thumb %}
+          {% endif %}
+        {% endfor %}
+
+        {% if search_keyword and products.size == 0  %}
+          <div class="ProductList-list-empty-placeholder">
+            {{ 'products.search.no_result.' | translate: keyword: search_keyword | escape }}
+            <div class="help-block">{{ 'shopline_translations.product.search.no_result_notice' | translate }}</div>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <div class="col-xs-12 text-center">
+          <ul class="ProductList-paginator pagination">
+            {% if paginate.previous.is_link %}
+              <li class="ProductList-paginator-button">
+                <a class="Label" href="{{ paginate.previous.url }}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+              </li>
+            {% endif %}
+            {% for part in paginate.parts %}
+              <li class="ProductList-paginator-button {% if part.page == paginate.current_page %}active{% endif %}"><a class="Label" href="{{ part.handle }}">{{ part.title }}</a></li>
+            {% endfor %}
+            {% if paginate.next.is_link %}
+              <li class="ProductList-paginator-button">
+                <a class="Label" href="{{ paginate.next.url }}"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="Post">
+      <h1 class="Post-title"> {{ post.title }} </h1>
+      <div class="Post-date"> {{ post.date }} </div>
+      <div class="Post-content"> {{ post.content }} </div>
+      {% share_buttons %} {{ shop.url }}/blog/posts/{{ post.id }} {% end_share_buttons %}
+    </div>
+  </div>
+</div>

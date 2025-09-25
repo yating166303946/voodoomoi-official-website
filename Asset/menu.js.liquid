@@ -1,0 +1,22 @@
+function initSubmenu(openSel, closeSel, menuName) {
+  $(openSel).sidr(new SidrOptions({ name: menuName }));
+  $(openSel).off(); /* remove click event handler from sidr */
+  $('body').on('click.' + menuName, openSel, function(e) {
+    $.sidr('close', 'MenuPanel', function() {
+      $.sidr('open', menuName);
+    });
+  });
+
+  $('body').on('click.' + menuName, closeSel, function(e) {
+    $.sidr('close', menuName, function() {
+      $.sidr('open', 'MenuPanel');
+    });
+  });
+
+  $('.sl-modal-mask').on('click', function() {
+    $.sidr('close', menuName);
+  });
+}
+
+initSubmenu('.sl-language-menu-open', '.sl-language-menu-close', 'LanguagePanel');
+initSubmenu('.sl-currency-menu-open', '.sl-currency-menu-close', 'CurrencyPanel');

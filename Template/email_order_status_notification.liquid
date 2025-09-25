@@ -1,0 +1,416 @@
+<p style="font-weight: bold; font-size: 18px; line-height: 24px; color: #1c2538;">{{ title }}</p>
+<p>{{ content }}</p>
+
+<a style="padding: 10px 30px; background-color:#008edd; text-decoration:none; color:#fff; text-align:center; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-transform:uppercase; margin: 30px 0; display:block; font-size: 14px;"
+   href="{{order_url}}">{{ 'shopline_translations.emails.orders.view_order' | translate }}
+</a>
+
+<p style="height: 1px; border-bottom: 1px solid #cccccc; clear: both;"></p>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.date' | translate }}
+</div>  
+
+<div style="margin-bottom:15px; font-size: 14px; color: #555555;">
+  {{ order.created_at | date: "%b %d, %Y" }}
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.number' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.order_number }}
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.status.title' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.status_label }}
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.shop' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.seller.name }} ({{ order.seller.email }}) 
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.customer' | translate }} 
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ customer.name }} ({{ customer.email }})
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.customer_phone' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ customer.phone | mask: 'phone' }}
+</div>
+
+{% if customer.gender %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.membership.fields.gender' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ customer.gender }}   
+  </div>
+{% endif %}
+
+{% if customer.birthday %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.membership.fields.birthday' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ customer.birthday | date: "%b %d, %Y" }}
+  </div>
+{% endif %}
+
+{% if customer.attributes %}
+  {% for attribute in customer.attributes %}
+    <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ attribute | first }}
+    </div>
+    <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+      {{ attribute | last }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% if order.remarks %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.remarks' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.remarks }}
+  </div>
+{% endif %}
+
+{% for attribute in order.attributes %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform:uppercase;">
+    {{ attribute | first }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ attribute | last }}
+  </div>
+{% endfor %}
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.payment.method' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.order_payment.name }}
+</div>
+
+{% if order.order_payment.instructions %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.payment.instructions' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555">
+    {{ order.order_payment.instructions }}
+  </div>
+{% endif %}
+
+{% if order.order_payment.type.to_s == 'paypal' %}
+  {% if order.order_payment.txn_id %}
+    <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ 'shopline_translations.emails.orders.fields.payment.paypal_id' | translate }}
+    </div>
+    <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+      {{ order.order_payment.txn_id }}
+    </div>
+  {% endif %}
+{% endif %}
+
+{% if order.order_payment.transaction_id %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.payment.transaction_id' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_payment.transaction_id }}
+  </div>
+{% endif %}
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.payment.status' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.order_payment.status_label }}
+</div>  
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">  
+  {{ 'shopline_translations.emails.orders.fields.delivery_method' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.order_delivery.name }}
+</div>
+
+{% if order.order_delivery.description %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_details' | translate }}
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.description }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.address %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_address' | translate }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.recipient_name }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.address1 }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.address2 }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.city }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.state }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.country }}
+  </div>
+  <div style="margin-bottom: 5px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.address.postcode }}
+  </div>
+  <span style="height: 10px; display: block"></span>
+  {% if order.order_delivery.remarks %}
+    <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ 'shopline_translations.emails.orders.fields.delivery_remarks' | translate }}
+    </div>
+    <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+      {{ order.order_delivery.remarks }}
+    </div>
+  {% endif %}
+{% endif %}
+
+{% if order.order_delivery.recipient_name %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.recipient_name' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.recipient_name }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.recipient_phone %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.recipient_phone' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.recipient_phone | mask: 'phone' }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.location_code %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.location_code' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.location_code }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.location_name %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.location_name' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.location_name }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.delivery_name %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ order.order_delivery.delivery_name_title }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.delivery_name }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.tracking_number %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.tracking_number' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.tracking_number }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.url %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.url' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.url }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.shipment_number %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.shipment_number' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.shipment_number }}
+  </div>
+{% endif %}
+
+{% if order.order_delivery.sn_id %}
+  <div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+    {{ 'shopline_translations.emails.orders.fields.delivery_data.sn_id' | translate }} 
+  </div>
+  <div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+    {{ order.order_delivery.sn_id }}
+  </div>
+{% endif %}
+
+<span style="height: 10px; display: block"> </span>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.delivery_status' | translate }}
+</div>
+<div style="margin-bottom: 15px; font-size: 14px; color: #555555;">
+  {{ order.order_delivery.status_label }}
+</div>
+
+<div style="margin-bottom: 5px; font-size: 12px; color: #333333; text-transform: uppercase;">
+  {{ 'shopline_translations.emails.orders.fields.details' | translate }}
+</div>
+
+<table style="width: 100%; font-size: 12px; color: #333333;">
+  {% for line_item in order.line_items %}
+    <tr>
+      <td>
+        {% if line_item.image_url %}
+          <a href="#" target="_blank">
+            <img style="margin-right: 10px; width: 70px; height: 70px; float: left; margin-bottom: 15px" 
+                 src="{{line_item.image_url}}"
+                 alt="">
+          </a>
+        {% endif %}
+        <div>
+          {% if line_item.title %}
+            {% if line_item.type == 'AddonProduct' %}
+              <span style="padding: 2px 10px; background-color: #777; display: inline-block; font-size: 75%; color: #fff; margin-bottom: 3px;">
+                {{ 'shopline_translations.themes.products.addon_product' | translate }}
+              </span>
+              <br>
+            {% endif %}
+
+            {% if line_item.type == 'Gift' %}
+              <span style="padding: 2px 10px; background-color: #777; display: inline-block; font-size: 75%; color: #fff; margin-bottom: 3px;">
+                {{ 'shopline_translations.themes.products.gift' | translate }}
+              </span>
+              <br>
+            {% endif %}
+            <p style="margin:0 3px 3px;">
+              {{ line_item.title }}
+            </p>
+          {% endif %}
+
+          {% for name in line_item.variation_names %}
+            <p style="margin:0 3px 3px;">{{ name }}</p>
+          {% endfor %}
+
+          <p style="margin:0 3px 15px;">
+            {{ line_item.quantity }} x {{ line_item.price }}
+            {% if line_item.preorder_note %}
+              <br>
+              <div class="subtext preorder-label">
+                {{ line_item.preorder_note }}
+              </div>
+            {% endif %}
+          </p>
+        </div>
+      </td>
+      <td style="vertical-align: top;">
+        <div style="text-align: right; float: right;">
+          <span>{{ line_item.total_price }}</span>
+        </div>
+      </td>
+    </tr>
+  {% endfor %}
+  <tr>
+    <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ 'shopline_translations.emails.orders.fields.subtotal' | translate }}:
+    </td>
+    <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+      {{ order.subtotal_price }}
+    </td>
+  </tr>
+
+  {% if order.discount_price %}
+    <tr>
+      <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+        {{ 'shopline_translations.emails.orders.fields.discount' | translate }}:
+      </td>
+      <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+        -{{ order.discount_price }}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if order.custom_discount_price %}
+    <tr>
+      <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+        {{ 'shopline_translations.emails.orders.fields.custom_discount' | translate }}:
+      </td>
+      <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+        -{{ order.custom_discount_price }}    
+      </td>
+    </tr>
+  {% endif %}
+
+  <tr>
+    <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ 'shopline_translations.emails.orders.fields.delivery_fee' | translate }}:
+    </td>
+    <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+      {{ delivery_fee }}
+    </td>
+  </tr>
+
+  {% if applied_user_credit %}
+    <tr>
+      <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+        {{ 'shopline_translations.emails.orders.fields.applied_user_credits' | translate }}:
+      </td>
+      <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+        -{{ order.alternate_symbol }}{{ applied_user_credit }}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if order.order_payment.fee %}
+    <tr>
+      <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+        {{ 'shopline_translations.emails.orders.fields.payment_fee' | translate }}:
+      </td>
+      <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+        {{ order.order_payment.fee }}
+      </td>
+    </tr>
+  {% endif %}
+
+  <tr>
+    <td style="text-align: right; padding-bottom: 10px; font-size: 12px; color: #333333; text-transform: uppercase;">
+      {{ 'shopline_translations.emails.orders.fields.total' | translate }}:
+    </td>
+    <td style="text-align: right; padding-left: 16px; padding-bottom: 10px; font-size: 12px; color: #555555; white-space: nowrap;">
+      {% if order.total_price %}
+        {{ order.total_price }}
+      {% else %}
+        {{ 'shopline_translations.emails.orders.fields.free' | translate }}
+      {% endif %}
+    </td>
+  </tr>
+</table>

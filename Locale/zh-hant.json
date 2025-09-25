@@ -1,0 +1,15 @@
+{
+  "products": {
+    "search": {
+      "no_result": "抱歉，找不到您所查詢的「{{ keyword }}」相關商品"
+    }
+  },
+  "shopline_translations": {
+    "themes": {
+      "blog": {
+        "home": "Home",
+        "blog_list_page": "部落格列表"
+      }
+    }
+  }
+}

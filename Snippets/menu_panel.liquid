@@ -1,0 +1,120 @@
+<div id="MenuPanel" class="MenuPanel" style="display: none;">
+  <form class="Product-searchField-form sl-product-search">
+    <button disabled type="submit"><i class="fa fa-search"></i></button>
+    <input disabled maxlength="100" placeholder="{{ 'shopline_translations.themes.search' | translate }}">
+    <button disabled type="button" class="sl-search-clear"><i class="fa fa-times"></i></span></button>
+  </form>
+  <div class="MenuPanel-section">
+    <div class="MenuPanel-section-header">
+      {{ 'shopline_translations.themes.menu_panel.navigation' | translate }}
+    </div>
+    <ul class="MenuPanel-mainMenu">
+      {% for link in linklists.main-menu.links %}
+        {% if link.children != empty %}
+          <li class="List-item MenuPanel-nestedList sl-dropdown"
+              is-collapsed="{{ theme.settings.categories_collapsed }}"
+              is-mobile-collapsed="{{ theme.settings.mobile_categories_collapsed }}"
+          >
+            <a class="Label" link-highlight="{{ link.url }}" href="{{ link.url }}" target="{{ link.target }}">
+              {{ link.title }}
+              {% if link.children.links.size > 0 %}
+                <i class="fa sl-dropdown-toggle pull-right" data-toggle="collapse" href="#menu-nested-list-{{ link.id }}"></i>
+              {% endif %}
+            </a>
+            <ul class="MenuPanel-nestedList-dropdown sl-dropdown-list collapse" id="menu-nested-list-{{ link.id }}">
+              {% for sublink in link.children.links %}
+                <li class="List-item">
+                  <a class="Label" link-highlight="{{ sublink.url }}" href="{{ sublink.url }}" target="{{ sublink.target }}">
+                    {{ sublink.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="List-item">
+            <a class="Label" link-highlight="{{ link.url }}" href="{{ link.url }}" target="{{ link.target }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if categories != empty %}
+      <div class="MenuPanel-section-header">
+        {{ 'shopline_translations.themes.menu_panel.categories' | translate }}
+      </div>
+      <ul class="MenuPanel-categoryMenu">
+        {% for category in categories %}
+          {% if category.children != empty %}
+            <li class="List-item MenuPanel-nestedList sl-dropdown"
+                is-collapsed="{{ theme.settings.categories_collapsed }}"
+                is-mobile-collapsed="{{ theme.settings.mobile_categories_collapsed }}"
+            >
+              <a class="Label" link-highlight="{{ category.handle }}" href="{{ category.handle }}">
+                {{ category.title }}
+                {% if category.children.size > 0 %}
+                  <i class="fa sl-dropdown-toggle pull-right" data-toggle="collapse" href="#menu-nested-list-{{ category.id }}"></i>
+                {% endif %}
+              </a>
+              <ul class="MenuPanel-nestedList-dropdown sl-dropdown-list collapse" id="menu-nested-list-{{ category.id }}">
+                {% for subcategory in category.children %}
+                  <li class="List-item">
+                    <a class="Label" link-highlight="{{ subcategory.handle }}" href="{{ subcategory.handle }}">
+                      {{ subcategory.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="List-item">
+              <a class="Label" link-highlight="{{ category.handle }}" href="{{ category.handle }}">
+                {{ category.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if shop.features contains 'hide_membership' %}
+    {% elsif customer == blank %}
+      <div class="MenuPanel-section-header">
+        {{ 'shopline_translations.themes.menu_panel.account' | translate }}
+      </div>
+      <ul class="MenuPanel-accountMenu">
+        <li class="List-item">
+          <a class="Label" href="/users/sign_in" >{{ 'shopline_translations.themes.menu_panel.signin' | translate }}</a>
+        </li>
+        <li class="List-item">
+          <a class="Label" href="/users/sign_up">{{ 'shopline_translations.themes.menu_panel.signup' | translate }}</a>
+        </li>
+      </ul>
+    {% endif %}
+
+    <div class="MenuPanel-section-header">
+      {{ 'shopline_translations.themes.menu_panel.others' | translate }}
+    </div>
+    <ul class="MenuPanel-othersMenu">
+      <li class="List-item">
+        <a class="MessageDialog-showButton sl-message-toggle">
+          <i class="fa fa-comments-o"></i> {{ 'shopline_translations.themes.menu_panel.messaging' | translate }}
+        </a>
+      </li>
+      <li class="List-item">
+        <a class="sl-language-menu-open">
+          <i class="fa fa-globe"></i> {{ shop.current_locale.name }}
+        </a>
+      </li>
+      {% if shop.multicurrency_enabled %}
+        <li class="List-item">
+          <a class="sl-currency-menu-open">
+            <i class="fa fa-dollar"></i> {{ shop.currency }}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

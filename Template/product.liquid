@@ -1,0 +1,28 @@
+<a class="Product-item"
+   href="{{ product.handle }}"
+   {{ product.ga_click_tag }}
+   {% if open_link_in_new_tab %} target="_blank" {% endif %}
+>
+  <div class="Image-boxify Product-image">
+    <div class="Image-boxify-image sl-lazy-image" style="background-image:url({{ product.image.src }})" ></div>
+  </div>
+  <div class="Product-info">
+    <div class="Product-title Label mix-primary-text"
+         style="{% if text_alignment %} text-align: {{ text_alignment }} {% endif %}"
+    >{{ product.title }}</div>
+    {% if product.hide_price == false %}
+      {% if product.price_varies %}
+        <div class="Label-price sl-price">
+          {{ product.price_min }}
+        </div>
+      {% elsif product.on_sale %}
+        <div class="Label-price sl-price is-sale">
+          <span class="Label-price-original">{{ product.price }}</span>
+          {{ product.sale_price }}
+        </div>
+      {% else %}
+        <span class="Label-price sl-price">{{ product.price }}</span>
+      {% endif %}
+    {% endif %}
+  </div>
+</a>

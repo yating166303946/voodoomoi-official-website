@@ -1,0 +1,15 @@
+<div id="LanguagePanel" class="MenuPanel" style="display: none;">
+  <div class="MenuPanel-section">
+    <div class="MenuPanel-section-header sl-language-menu-close">
+      <span class="fa fa-chevron-left"></span>
+      {{ 'shopline_translations.themes.menu_panel.language' | translate }}
+    </div>
+    <ul class="sl-language-chooser">
+      {% for locale in shop.supported_locales %}
+        <li class="List-item">
+          <a class="Label sl-language-chooser-language" href="#{{ locale.code }}">{{ locale.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

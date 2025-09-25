@@ -1,0 +1,15 @@
+{
+  "products": {
+    "search": {
+      "no_result": "Sorry, related product(s) of \"{{ keyword }}\" cannot be found."
+    }
+  },
+  "shopline_translations": {
+    "themes": {
+      "blog": {
+        "home": "Home",
+        "blog_list_page": "Blog list page"
+      }
+    }
+  }
+}

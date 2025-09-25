@@ -1,0 +1,56 @@
+{% if page.url contains '/wishlist' %}
+  {% assign selected_tab_index = 4 %}
+{% elsif page.url contains '/orders' %}
+  {% assign selected_tab_index = 3 %}
+{% elsif page.url contains '/messages' %}
+  {% assign selected_tab_index = 2 %}
+{% elsif page.url contains '/user_credits' %}
+  {% assign selected_tab_index = 1 %}
+{% else %}
+   {% assign selected_tab_index = 0 %}
+{% endif %}
+
+<section class="MemberCenter">
+  <div class="MemberCenter-wrapper">
+    <div class="MemberCenter-nav">
+      {% shadow selected_tab %}
+        {% tabset %}
+          <div class="MemberCenter-welcomeMsg">
+            <span>{{ 'shopline_translations.themes.menu_panel.hello' | translate }} {{ customer.name }}</span>
+            <a href="/signout">{{ 'shopline_translations.themes.menu_panel.logout' | translate }}</a>
+          </div>
+          <!-- profile -->
+          {% tab { 'header-text-key': 'membership.profile.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+            {% user_profile %}{% end_user_profile %}
+          {% endtab %}
+          <!-- user_credits -->
+          {% if has_user_credit_manual and shop.enable_user_credit %}
+          {% tab { 'header-text-key': 'store_credits.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+            {% credits_list %}{% end_credits_list %}
+          {% endtab %}
+          {% else %}
+          {% endif %}
+          <!-- coupons -->
+          {% if shop.features contains 'customer_coupon' and shop.show_coupon %}
+            {% tab { 'header-text-key': 'coupon.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+              {% coupons %}{% end_coupons %}
+            {% endtab %}
+          {% else %}
+          {% endif %}
+          <!-- messages -->
+          {% tab { 'header-text-key': 'messages.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+            {% messages_list %}{% end_messages_list %}
+          {% endtab %}
+          <!-- order -->
+          {% tab { 'header-text-key': 'orders.index.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+            {% orders_list %}{% end_orders_list %}
+          {% endtab %}
+          <!-- wish list -->
+          {% tab { 'header-text-key': 'wishlist.title', 'scroll-to': '.MemberCenter-welcomeMsg', 'scroll-offset': 130 } %}
+            {% wish_list %}{% end_wish_list %}
+          {% endtab %}
+        {% endtabset %}
+      {% endshadow %}
+    </div>
+  </div>
+</section>

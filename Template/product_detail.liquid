@@ -1,0 +1,156 @@
+<!-- Breadcrumb -->
+<div class="ProductDetail-breadcrumb">
+  <a class="Label" href="/products">{{ 'shopline_translations.themes.products.view_all' | translate }}</a>
+  / <span class="Label Product-title" href="">{{ product.title }}</span>
+</div>
+<!-- END Breadcrumb -->
+
+{% javascript_cloak %}
+  <div class="ProductDetail-product row">
+    <div class="ProductDetail-product-gallery col-xs-12 col-md-6">
+      <span class="loading-placeholder" style="width: 250px; height: 350px; margin: 0 auto; margin-bottom: 15px;"></span>
+      <div>
+        <span class="loading-placeholder pull-left" style="width: 72px; height: 72px; margin-right: 10px;"></span>
+        <span class="loading-placeholder pull-left" style="width: 72px; height: 72px; margin-right: 10px;"></span>
+        <span class="loading-placeholder pull-left" style="width: 72px; height: 72px;"></span>
+      </div>
+    </div>
+    <div class="ProductDetail-product-info col-xs-12 col-md-6">
+      <h1 class="Product-title">
+        {{ product.title }}
+      </h1>
+      <div>
+        <span class="loading-placeholder" style="width: 100px"></span>
+        <span class="loading-placeholder" style="width: 200px"></span>
+        <br/>
+        <span class="loading-placeholder" style="width: 310px"></span>
+        <span class="loading-placeholder" style="width: 150px"></span>
+      </div>
+    </div>
+  </div>
+{% show_on_ready %}
+  <div class="ProductDetail-product row">
+    <div class="ProductDetail-product-gallery col-xs-12 col-md-6">
+      {% product_gallery item-size="72" item-margin="10" %}{% end_product_gallery %}
+      {% if theme.settings.hide_share_buttons != true %}
+        {% share_buttons %}{% end_share_buttons %}
+      {% endif %}
+    </div>
+
+    <div class="ProductDetail-product-info col-xs-12 col-md-6 js-sticky-cart-button-container">
+      <h1 class="Product-title">
+        {{ product.title }}
+      </h1>
+            {% if product.summary != blank  %}
+              <p class='Product-summary Product-summary-block'>{{ product.summary }}</p>
+              <hr/>
+            {% endif %}
+
+      {% product_available_info %}{% end_product_available_info %}
+
+      {% if promotion_tags.size > 0 %}
+        <input class="Util-cssToggle" type="checkbox" name="Promotion-tags-toggle" id="Promotion-tags-toggle" />
+        <div class="Product-promotions">
+          {% for promotion_tag in promotion_tags %}
+            <p class="Product-promotions-tag">
+              {{ promotion_tag.content }}
+            </p>
+          {% endfor %}
+        </div>
+        {% if promotion_tags.size > 2 %}
+          <label class="Util-cssToggleLabel" for="Promotion-tags-toggle">
+            <span class="Toggle-expanded">{{ 'shopline_translations.themes.products.promotion_tags.actions.expand' | translate }}</span>
+            <span class="Toggle-collapsed">{{ 'shopline_translations.themes.products.promotion_tags.actions.collapse' | translate }}</span>
+          </label>
+        {% endif %}
+      {% endif %}
+
+      {% product_detail_actions %}{% end_product_detail_actions %}
+      <p class="ProductDetail-Imgall-pc">
+        <img src="https://img.shoplineapp.com/media/image_clips/5d411fd6a55f1e003e64df4d/original.png?1564549078">
+      </p>
+    </div>
+  </div>
+{% end_javascript_cloak %}
+
+
+{% if related_products.size > 0 %}
+  <div class="ProductDetail-relatedProducts">
+    <h3 class="ProductDetail-relatedProducts-title">{{ 'shopline_translations.themes.products.related_products' | translate }}</h3>
+    <div class="ProductDetail-relatedProducts-list">
+      {% for product in related_products %}
+        {% product_thumb %} {% end_product_thumb %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+<div class="ProductDetail-additionalInfo row">
+  <div class="col-xs-12">
+    {% tabset %}
+      {% tab { 'header-text-key': 'themes.products.description', 'scroll-offset': 48 } %}
+        <div class="ProductDetail-description">
+          <div class="ProductDetail-title">
+            {{ 'shopline_translations.themes.products.description' | translate }}
+          </div>
+          {{ product.description }}
+        </div>
+        {% if product.additional_images.size > 0 %}
+        <div class="ProductDetail-gallery">
+          <div class="ProductDetail-title">
+            {{ 'shopline_translations.themes.products.detail_media' | translate }}
+          </div>
+          <ul>
+            {% for image in product.additional_images %}
+              <li><img src="{{ image.src }}" ></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      {% endtab %}
+{% if shop.amazon_product_review_enabled or shop.product_review_enabled %}
+  {% tab { 'header-text-key': 'themes.products.customer_reviews', 'scroll-offset': 48 } %}
+    <div class="ProductDetail-title" id="product-review-section">
+      {{ 'shopline_translations.themes.products.customer_reviews' | translate }}
+    </div>
+    {% customer_review %}{% end_customer_review %}
+  {% endtab %}
+{% endif %}
+    
+      {% tab { 'header-text-key': 'themes.products.payment_and_delivery', 'scroll-offset': 48 } %}
+        <div class="ProductDetail-title">
+          {{ 'shopline_translations.themes.products.payment_and_delivery' | translate }}
+        </div>
+        <div class="row">
+          <div class="Product-deliveryList col-sm-6 col-xs-12">
+            <h3>{{ 'shopline_translations.themes.products.delivery_option' | translate }}</h3>
+            <ul class="ProductDetail-delul">
+              {% for delivery in available_deliveries %}
+                <li>{{ delivery.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="Product-paymentList col-sm-6 col-xs-12">
+            <h3>{{ 'shopline_translations.themes.products.payment_option' | translate }}</h3>
+            <ul class="ProductDetail-payul">
+              {% for payment in available_payments %}
+                <li>{{ payment.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endtab %}
+    {% endtabset %}
+    
+      <p class="ProductDetail-Imgall-mb">
+        <img src="https://img.shoplineapp.com/media/image_clips/5d411fd6a55f1e003e64df4d/original.png?1564549078">
+      </p>
+  </div>
+</div>
+
+
+{% if shop.facebook_comment_enabled %}
+  <div class="ProductDetail-fbComments">
+    {% facebook_comment %}{% end_facebook_comment %}
+  </div>
+{% endif %}
+

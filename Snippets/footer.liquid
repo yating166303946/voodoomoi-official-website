@@ -1,0 +1,63 @@
+<div id="Footer">
+  {% if shop.custom_footer != blank %}
+    <div class="Footer-grids">
+      {{ shop.custom_footer }}
+    </div>
+  {% else %}
+    <div class="container">
+      <div class="row">
+        <div class="Footer-linkList1 col-sm-4">
+          <ul class="List-unstyledList">
+            {% for link in linklists.footer1.links %}
+            <li class="List-item">
+              <a href="{{ link.url }}" target="{{ link.target }}">{{ link.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="Footer-linkList2 col-sm-4">
+          <ul class="List-unstyledList">
+            {% for link in linklists.footer2.links %}
+            <li class="List-item">
+              <a href="{{ link.url }}" target="{{ link.target }}">{{ link.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="Footer-socialSection col-sm-4">
+          <div class="Footer-socialSection-inner">
+            <span class="Footer-socialSection-title">Follow us on</span>
+            <br>
+            <ul class="Footer-socialList List-unstyledList">
+              <li class="List-item"><i class="fa fa-facebook-square" aria-hidden="true"></i></li>
+              <li class="List-item"><i class="fa fa-instagram" aria-hidden="true"></i></li>
+              <li class="List-item"><i class="fa fa-youtube" aria-hidden="true"></i></li>
+              <li class="List-item"><i class="fa fa-twitter" aria-hidden="true"></i></li>
+              <li class="List-item"><i class="fa fa-pinterest" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="Footer-supportedPayments col-sm-12">
+          <span class="Payment-info">Pay securely with </span>
+          <span class="Payment-creditCards">
+            {% for payment_type in shop.enabled_payment_types %}
+              {% if payment_type == "allpay" or payment_type == "paypal" %}
+                {% if payment_type == "allpay" %}
+                  <a href="https://www.allpay.com.tw/" target="_blank"><img src="{{ system.static_asset_root }}/footer/card_{{ payment_type }}.png" height="40"></a>
+                {% endif %}
+                {% if payment_type == "paypal" %}
+                  <img src="{{ system.static_asset_root }}/footer/card_{{ payment_type }}.png" height="40">
+                  <img src="{{ system.static_asset_root }}/footer/card_unionpay.png" height="40">
+                {% endif %}
+              {% else %}
+                <img src="{{ system.static_asset_root }}/footer/card_{{ payment_type }}.png" height="40">
+              {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>

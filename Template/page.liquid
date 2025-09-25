@@ -1,0 +1,36 @@
+<div class="CustomPage">
+  {% content_for_index %}
+  {% for row in custom_page.rows %}
+    <div class="Grid-row-wrapper
+      {% if row.full_width %} m-full-width {% endif %}
+      {% if row.remove_padding %} m-remove-padding {% endif %}"
+    >
+      <div class="Grid-row">
+        {% for item in row.items %}
+          <div id="page-item-{{item.id}}" class="Grid-item">
+            {% grid_item_block %}{% end_grid_item_block %}
+
+            {% unless item.hide_title or row.full_width %}
+              <div class="Grid-item-title">
+                {{ item.title | strip_html }}
+              </div>
+            {% endunless %}
+
+            {% unless item.hide_description or row.full_width %}
+              <div class="Grid-item-content">
+                {{ item.content }}
+              </div>
+            {% endunless %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+
+  {% if custom_page.type == 'text' %}
+    <div class="CustomPage-text-page container">
+      <h1 class="CustomPage-title"> {{ custom_page.title | strip_html }} </h1>
+      <div class="CustomPage-content"> {{ custom_page.content }} </div>
+    </div>
+  {% endif %}
+</div>
