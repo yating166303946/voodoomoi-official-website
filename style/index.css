@@ -1,0 +1,20 @@
+@config "./tailwind.config.js";
+
+:root {
+  --primary-100: #9A8352;
+  --primary-80: #9A8352CC;
+  --primary-60: #C2B597;
+  --primary-40: #D7CDBA;
+  --primary-tint: #EBE6DC;
+  
+  --neutral-100: #000000;
+  --neutral-80: #4B4B4B;
+  --neutral-60: #909090;
+  --neutral-40: #ECECEC;
+  --neutral-10: #F9F9F9;
+  --neutral-0: #FFFFFF;
+
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-invert: #FFFFFF;
+}

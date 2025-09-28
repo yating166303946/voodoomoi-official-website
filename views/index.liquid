@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ shop.name }}</title>
+    
   </head>
   <body>
-    <h1>歡迎來到 {{ shop.name }}</h1>
-    <p>目前幣別：{{ shop.currency }}</p>
-
     {% if shop.products.size > 0 %}
       <ul>
         {% for p in shop.products %}

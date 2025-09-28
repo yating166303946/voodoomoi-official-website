@@ -1,6 +1,12 @@
-const { Liquid } = require('liquidjs')
-const express = require('express')
-const fs = require('fs')
+// const { Liquid } = require('liquidjs')
+// const express = require('express')
+// const fs = require('fs')
+
+import { Liquid } from 'liquidjs'
+import express from 'express'
+import fs from 'fs'
+
+import { shop } from './mock/shop'
 
 // const engine = new Liquid({
 //   root: process.cwd(), // 讓 parseFile 可以找到檔案
@@ -33,14 +39,7 @@ app.set('view engine', 'liquid')
 
 app.get('/', (req, res) => {
   res.render('index', {
-    shop: {
-      name: '我的商店',
-      currency: 'TWD',
-      products: [
-        { name: '商品A', price: 100 },
-        { name: '商品B', price: 200 }
-      ]
-    }
+    shop: shop
   })
 })
 
