@@ -652,6 +652,9 @@
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
   .py-3\! {
     padding-block: calc(var(--spacing) * 3) !important;
   }
@@ -673,14 +676,8 @@
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
   }
-  .pt-3 {
-    padding-top: calc(var(--spacing) * 3);
-  }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
-  }
-  .pb-\[14px\] {
-    padding-bottom: 14px;
   }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
@@ -697,10 +694,6 @@
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
-  }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-h1 {
     font-size: var(--text-h1);
