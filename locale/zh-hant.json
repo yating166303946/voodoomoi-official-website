@@ -1,0 +1,79 @@
+{
+	"products": {
+		"search": {
+			"no_result": "抱歉，找不到您所查詢的「{{ keyword }}」相關商品"
+		}
+	},
+	"shopline_translations": {
+		"themes": {
+			"blog": {
+				"home": "Home",
+				"blog_list_page": "部落格列表"
+			}
+		}
+	},
+	"nav": {
+		"btn_message": "為您解答",
+		"btn_sign_in": "登入",
+		"btn_account": "我的帳戶",
+		"btn_cart": "購物車",
+		"btn_search": "搜尋"
+	},
+	"footer": {
+		"links_service": {
+			"title": "訂單與協助",
+			"contact_us": "聯絡我們",
+			"returns_and_refunds": "退換貨政策",
+			"terms_and_details": "條款與明細"
+		},
+		"links_about": {
+			"title": "關於好魔",
+			"philosophy": "好魔理念",
+			"team": "好魔團隊",
+			"journey": "好魔歷程",
+			"cooperation": "重要陳列",
+			"esg_commitment": "ESG承諾"
+		},
+		"esg_purpose": {
+			"title": "環境永續性",
+			"subtitle1": "堅持",
+			"content1": "我們承諾使用 ECOCERT 有機素材，並拒絕任何動物實驗、與對羥基苯甲酸添加。",
+			"subtitle2": "永續",
+			"content2": "好魔 VÖODÖOMÖI 以美麗應當恆常永續，選用 FSC 可回收素材包裝並期許能減少一次性使用塑料包裝與碳足跡。"
+		},
+		"subscribe": {
+			"title": "訂閱我們的電子通訊，接收有關VÖODÖOMÖI產品、服務、活動及課程的更多資訊。",
+			"placeholder1": "請輸入電子郵件",
+			"placeholder2": "請輸入電話號碼",
+			"btn": "訂閱 VÖODÖOMÖI 電子報"
+		}
+	},
+	"home": {
+		"slogan": {
+			"title": "好魔 | 香韻 | 肌膚",
+			"content1": "起源於法文音韻裡的祈願自麗，好魔 VÖODÖOMÖI 期盼與您同行，",
+			"content2": "告別寂寞，喚醒深埋在肌膚與心緒裡，獨一無二的美。"
+		},
+		"gallery": {
+			"category1": "護膚",
+			"category2": "香調",
+			"category3": "心緒"
+		},
+		"hot_products": {
+			"title": "本日最熱門"
+		},
+		"brand_story": {
+			"title": "好魔品牌故事",
+			"subtitle1": "VÖODÖOMÖI",
+			"subtitle2": "[vø.dø.moi]",
+			"content": "原意為向自己許願，祈願自麗，源於古法文雅韻 VOEU de MOI 的好魔 VÖODÖOMÖI，結合台北、東京、與巴黎三地兼有生醫、妝品與美學青創，願與你同行，喚醒深埋在肌膚與心緒裡，獨一無二的美。好魔 VÖODÖOMÖI 相信美麗源自肌膚與心緒的交互協同，從生醫出發，師法並擷取自然植物，誠心打造最適合肌膚與心緒的保養產品，讓美麗能由內而外綻放。創辦人 Ｄr. Joseph Wan 深受高級香水動人香華啟發，透過保養產品與調香體驗，透過五感讓美麗在舉手投足間，自然開展。",
+			"button": "關於好魔"
+		},
+		"logos_eshop": {
+			"title": "電商平台"
+		},
+		"logos_partner": {
+			"title": "合作夥伴"
+		}
+	}
+}

@@ -1,0 +1,67 @@
+<nav
+  id="nav-bar-mobile"
+  class="mod-mobile hidden-lg w-full fixed top-0 z-50 px-5 py-7 bg-neutral-0 [&.scrolled]:bg-neutral-0 data-[page=home]:bg-transparent [&.scrolled]:shadow-lg/4 [&.scrolled]:shadow-black"
+  data-page="{% if page.url == '/' %}home{% else %}else{% endif %}"
+  >
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <a class="flex-1 text-left" href="/">
+      <div class="logo aspect-[388/53] w-[clamp(143px,10.4vw,200px)] [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+    </a>
+    
+    <div class="flex-1 flex justify-end gap-x-4 items-center">
+      <!-- Search -->
+      {% comment %} <label for="vdm-search-mobile" class="group mb-0!">
+        <div class="flex gap-x-2 cursor-pointer text-caption-serif-semibold">
+          <div class="icon icon-find size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+          <form class="sl-product-search opacity-0 w-0 transition-all duration-300 group-focus-within:opacity-100 group-focus-within:w-full">
+            <input
+              id="vdm-search-mobile"
+              class="outline-none bg-transparent"
+              placeholder="{{ 'shopline_translations.themes.search' | translate }}"
+              maxlength="100"
+              disabled
+              >
+          </form>
+        </div>
+      </label> {% endcomment %}
+
+      <!-- Language chooser -->
+      <div class="cursor-pointer App-languageDropdown dropdown" dropdown>
+        <div class="dropdown-toggle" dropdown-toggle>
+          <div class="icon icon-lang size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+        </div>
+        <ul class="dropdown-menu sl-language-chooser -translate-x-1/4 border! border-primary-100! shadow-none! px-4! py-3!">
+          {% for locale in shop.supported_locales %}
+            <li class="text-caption-serif-semibold! sl-language-chooser-language" href="#{{ locale.code }}">
+              {{ locale.name }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Cart panel toggle -->
+      <a class="sl-cart-toggle">
+        <div class="icon icon-cart size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+        <span class="Cart-count sl-cart-count"></span>
+      </a>
+
+      {% if customer == blank %}
+        <!-- Sign-in button -->
+        <a class="" href="/users/sign_in">
+          <div class="icon icon-user size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+        </a>
+      {% else %}
+        <!-- Member Center button -->
+        <a class="" href="/users/{{ customer.id }}/edit">
+          <div class="icon icon-user size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+        </a>
+      {% endif %}
+
+      <!-- Burger Menu -->
+      <div class="sl-menu-panel-toggle">
+        <div class="icon icon-menu size-4 [#nav-bar-mobile[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
+      </div>
+    </div>
+  </div>
+</nav>

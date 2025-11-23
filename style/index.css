@@ -17,4 +17,72 @@
   --text-primary: #212121;
   --text-secondary: #757575;
   --text-invert: #FFFFFF;
+  
+  --font-size-H1: 36px;
+  --font-size-H2: 28px;
+  --font-size-H3: 18px;
+  --font-size-body: 15px;
+  --font-size-caption: 12px;
+
+  --font-family-serif: "Noto Serif TC", serif;
+  --font-family-sans: "Noto Sans TC", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote,
+dl, dd {
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+.font-body-serif {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-body);
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.font-body-sans {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  line-height: 1.875rem;
+  font-weight: 500;
+}
+
+.font-caption-serif {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-caption);
+  line-height: 1.375rem;
+  font-weight: 500;
+}
+
+.font-caption-sans {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-caption);
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+/* semi-bold */
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

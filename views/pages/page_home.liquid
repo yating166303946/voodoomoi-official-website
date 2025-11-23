@@ -1,0 +1,353 @@
+<!-- Hero Carousel -->
+<section class="bg-primary-60 aspect-375/420 md:aspect-none w-full md:h-dvh overflow-hidden mx-auto">
+  <div id="hero-carousel" class="flex h-full w-max">
+    <img
+      class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw object-cover object-center"
+      src="https://img.shoplineapp.com/media/image_clips/6915835d52d769000c6a8b7d/original.jpg?1763017565=&owner_id=5abb8aaf4e22a6744f0004f7"
+      alt="banner"
+    />
+    <img
+      class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw object-cover object-center"
+      src="https://img.shoplineapp.com/media/image_clips/6908bd1873cda5000b58dbc7/original.JPG?1762180375=&owner_id=5abb8aaf4e22a6744f0004f7"
+      alt="banner"
+    />
+    <img
+      class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw object-cover object-center"
+      src="https://img.shoplineapp.com/media/image_clips/6908bd18f3aebd000c8bdc26/original.JPG?1762180375=&owner_id=5abb8aaf4e22a6744f0004f7"
+      alt="banner"
+    />
+    <!-- 補第一張 -->
+    <img
+      class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw object-cover object-center"
+      src="https://img.shoplineapp.com/media/image_clips/6915835d52d769000c6a8b7d/original.jpg?1763017565=&owner_id=5abb8aaf4e22a6744f0004f7"
+      alt="banner"
+    />
+  </div>
+</section>
+
+<!-- slogan -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign sloganTitle = "好魔 | 香韻 | 肌膚" %}
+  {% assign sloganContent1 = "起源於法文音韻裡的祈願自麗，好魔 VÖODÖOMÖI 期盼與您同行，" %}
+  {% assign sloganContent2 = "告別寂寞，喚醒深埋在肌膚與心緒裡，獨一無二的美。" %}
+{% else %}
+  {% assign sloganTitle = "VÖODÖOMÖI | Fragrance | Skin" %}
+  {% assign sloganContent1 = "Born from the lyrical rhythm of old French — Vœu de Moi, a wish whispered to oneself — VÖODÖOMÖI is a quiet invocation of beauty." %}
+  {% assign sloganContent2 = "It invites you to journey beyond solitude, to awaken what lies dormant beneath skin and sentiment — a beauty entirely your own." %}
+{% endif %}
+
+<section class='px-3 sm:px-16 py-[clamp(40px,2.4vw,54px)]'>
+  <div class="text-center border-y border-y-primary-100 py-16 sm:py-25">
+    <div class="text-h1 mb-6">{{ sloganTitle }}</div>
+    <div class="mx-auto max-w-55 sm:max-w-none text-body-serif-semibold">
+      <div>{{ sloganContent1 }}</div>
+      <div>{{ sloganContent2 }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign galleryCategory1 = "護膚" %}
+  {% assign galleryCategory2 = "香調" %}
+  {% assign galleryCategory3 = "心緒" %}
+{% else %}
+  {% assign galleryCategory1 = "SKINCARE." %}
+  {% assign galleryCategory2 = "SCENT." %}
+  {% assign galleryCategory3 = "MOOD." %}
+{% endif %}
+
+<section>
+  <div id="gallery" class="flex w-full h-[375px] sm:h-dvh">
+    <div
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer open"
+      data-url="https://www.voodoomoi.com/pages/skin-care">
+      <img class="w-full h-full object-cover object-left"
+        src="https://img.shoplineapp.com/media/image_clips/69082b75b70cf500181fc80e/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
+        alt="category img">
+      <span
+        class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory1 }}</span>
+      <button
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        title="grow">
+        <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
+      </button>
+    </div>
+
+    <div
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer"
+      data-url="https://www.voodoomoi.com/pages/home-fragrance">
+      <img class="w-full h-full object-cover object-left"
+        src="https://img.shoplineapp.com/media/image_clips/69082b75ba39480018a5c785/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
+        alt="category img">
+      <span
+        class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory2 }}</span>
+      <button
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        title="grow">
+        <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
+      </button>
+    </div>
+
+    <div
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer"
+      data-url="/">
+      <img class="w-full h-full object-cover object-left"
+        src="https://img.shoplineapp.com/media/image_clips/69082b7569f50e000cdbd1ec/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
+        alt="category img">
+      <span
+        class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory3 }}</span>
+      <button
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        title="grow">
+        <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
+      </button>
+    </div>
+  </div>
+</section>
+<div class="border-t border-t-primary-100 mt-10 sm:mt-12 mx-3 sm:mx-15"></div>
+
+<!-- Video -->
+<div class="w-full aspect-video px-0 sm:px-11 mt-8 sm:mt-13">
+  <iframe
+    class="w-full h-full"
+    src="https://www.youtube.com/embed/O5Qs7XZ2Dp4?si=DjEp0pGKLk3Vmh2O"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+<div class="border-t border-primary-100 mt-8 sm:mt-15 mx-3 sm:mx-15"></div>
+
+<!-- Hot Products -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign hotProductsTitle = "本日最熱門" %}
+{% else %}
+  {% assign hotProductsTitle = "TODAY'S HIGHLIGHT" %}
+{% endif %}
+
+<section>
+  <div class="text-center text-h1 mt-10 sm:mt-16 mb-2 sm:mb-4">{{ hotProductsTitle }}</div>
+</section>
+
+<!-- Brand Story -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign brandStoryTitle = "好魔品牌故事" %}
+  {% assign brandStoryContent = "原意為向自己許願，祈願自麗，源於古法文雅韻 VOEU de MOI 的好魔 VÖODÖOMÖI，結合台北、東京、與巴黎三地兼有生醫、妝品與美學青創，願與你同行，喚醒深埋在肌膚與心緒裡，獨一無二的美。好魔 VÖODÖOMÖI 相信美麗源自肌膚與心緒的交互協同，從生醫出發，師法並擷取自然植物，誠心打造最適合肌膚與心緒的保養產品，讓美麗能由內而外綻放。創辦人 Ｄr. Joseph Wan 深受高級香水動人香華啟發，透過保養產品與調香體驗，透過五感讓美麗在舉手投足間，自然開展。" %}
+  {% assign brandStoryButton = "關於好魔" %}
+{% else %}
+  {% assign brandStoryTitle = "BRAND STORY" %}
+  {% assign brandStoryContent = "Conjured from VŒU DE MOI, the ultimate wish for self-fulfillment and self-love, VÖODÖOMÖI offers skin and body care solutions. The founder, Dr. Joseph Wan, believes in the neuro-sensory benefits of fragrance to mind and body, and crafts the full array of organic and fragrant skin and home products. His expertise in functional imaging and respiratory diseases enable him to explore the potentials of the liaison in between olfaction and holistic wellness." %}
+  {% assign brandStoryButton = "About VÖODÖOMÖI" %}
+{% endif %}
+
+<div class="border-t border-primary-100 mt-10 sm:mt-25 mb-12 sm:mb-21 mx-3 sm:mx-15"></div>
+<section class="px-15 mb-12 sm:mb-21">
+  <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+    <div class="px-4 md:basis-1/3">
+      <div class="text-h1 mb-4">{{ brandStoryTitle }}</div>
+      <div class="text-voodoomoi">VÖODÖOMÖI</div>
+      <div class="text-voodoomoi">[vø.dø.moi]</div>
+      <div class="text-body-sans! text-black my-8">{{ brandStoryContent }}</div>
+      <div
+        id="brand_story_btn"
+        class="border border-primary-100 h-[34px] w-[170px] pl-3 cursor-pointer transition-all duration-300 ease-in-out group hover:bg-primary-100 ">
+        <span class="text-caption-serif-semibold leading-[34px] group-hover:text-neutral-0! transition-all duration-300 ease-in-out">{{ brandStoryButton }}</span>
+      </div>
+    </div>
+
+    <div class="px-4 md:basis-2/3 order-first sm:order-last">
+      <img class="w-full aspect-auto object-cover"
+        src="https://img.shoplineapp.com/media/image_clips/68dbe29c2f23ba0010733a75/original.jpg?1759240860=&owner_id=5abb8aaf4e22a6744f0004f7"
+        alt="brand-story">
+    </div>
+  </div>
+</section>
+
+<script>
+const brandStoryBtn = document.getElementById('brand_story_btn')
+brandStoryBtn.addEventListener('click', function() {
+  // 跳轉到『關於好魔』頁
+  window.location.href = 'https://www.voodoomoi.com/pages/philosophy';
+})
+</script>
+
+
+<!-- 電商平台 -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign logosEshopTitle = "電商平台" %}
+{% else %}
+  {% assign logosEshopTitle = "E-COMMERCE PLATFORM" %}
+{% endif %}
+
+<section class="mt-3 sm:mt-12 mb-12 sm:mb-26">
+  <div class="text-h1 text-center mb-6">{{ logosEshopTitle }}</div>
+  <div class="border-t border-primary-100 mx-3 sm:mx-15 mb-0 sm:mb-12"></div>
+
+  <div id="brand-carousel" class="w-full px-8 sm:px-0 sm:w-[70vw] mx-auto flex justify-center items-center gap-x-8">
+    <!-- 按鈕 -->
+    <button
+      class="prev bg-primary-80 size-[75px] shrink-0 rounded-full justify-center items-center cursor-pointer prev [display:none] sm:flex disabled:opacity-75 disabled:cursor-not-allowed"
+      type="button" title="prev">
+      <div class="icon icon-arrow-left size-13 bg-neutral-0! mr-1"></div>
+    </button>
+
+    <div
+      class="carousel-container relative h-42 sm:h-50 overflow-x-scroll scrollbar-hide snap-x snap-mandatory scroll-smooth flex gap-x-12 justify-start items-center">
+      <a class="h-full aspect-4/3 snap-start" href="https://www.breezeonline.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e10f2c78feea000c5dfcca/original.png?1759579948=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="微風精品線上" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.sogo.com.tw/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e10f2ce408320016bb194c/original.png?1759579948=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="Sogo+" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.elleshop.com.tw/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e10f2cf04876000c205014/original.jpg?1759579948=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="ELLE" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://shop.vogue.com.tw/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e10f2ce57693000ca9b111/original.jpg?1759579948=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="VOGUE SHOP" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.pinkoi.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e10f2c3717780014946b66/original.jpg?1759579948=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="pinkoi" />
+      </a>
+    </div>
+
+    <!-- 按鈕 -->
+    <button
+      class="next bg-primary-80 size-[75px] shrink-0 rounded-full justify-center items-center cursor-pointer prev [display:none] sm:flex disabled:opacity-75 disabled:cursor-not-allowed"
+      type="button" title="next">
+      <div class="icon icon-arrow-right size-13 bg-neutral-0! ml-1"></div>
+    </button>
+  </div>
+
+  <div class="border-t border-primary-100 mx-3 sm:mx-15 mt-0 sm:mt-12"></div>
+</section>
+<br />
+
+
+<!-- 合作夥伴 -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign logosPartnerTitle = "合作夥伴" %}
+{% else %}
+  {% assign logosPartnerTitle = "OUR PARTNERS" %}
+{% endif %}
+
+<section class="mt-3 sm:mt-12 mb-12 sm:mb-26">
+  <div class="text-h1 text-center mb-6">{{ logosPartnerTitle }}</div>
+  <div class="border-t border-primary-100 mx-3 sm:mx-15 mb-0 sm:mb-12"></div>
+
+  <div id="cooperate-carousel" class="w-full px-8 sm:px-0 sm:w-[70vw] mx-auto flex justify-center items-center gap-x-8">
+    <!-- 按鈕 -->
+    <button
+      class="prev bg-primary-80 size-[75px] shrink-0 rounded-full justify-center items-center cursor-pointer prev [display:none] sm:flex disabled:opacity-75 disabled:cursor-not-allowed"
+      type="button" title="prev">
+      <div class="icon icon-arrow-left size-13 bg-neutral-0! mr-1"></div>
+    </button>
+
+    <div
+      class="carousel-container relative h-42 sm:h-50 overflow-x-scroll scrollbar-hide snap-x snap-mandatory scroll-smooth flex gap-x-12 justify-start items-center">
+      <a class="h-full aspect-4/3 snap-start" href="https://www.jamei-chen.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a11db8c5e00123d43a2/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="JAMEI CHEN" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.shiamal.com/tw/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a1109668c000aaab8b5/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="夏馬城市生活" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.sophiaritz1990.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a1112e716001421d527/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="Sophia" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.fuhaus.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a115ce5f1000c3edc31/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="丰巢" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.breeze.com.tw/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a115ce5f128503ed138/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="微風廣場" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.lanecrawford.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a119c063200145f1af3/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="LaneCrawford" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://shop.joycebeauty.com/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a1109668c0014aab886/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="JOYCE | BEAUTY" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.mandarinoriental.com/zh-hk/taipei/songshan" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a64ddd959000ed040b9/original.png?1759582819=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="The Spa at Mandarin Oriental, Taipei" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.mandarinoriental.com/zh-hk/hong-kong/victoria-harbour" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a64d6ee14000e8b0ab0/original.png?1759582819=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="The Spa at Mandarin Oriental, Hong Kong" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.mandarinoriental.com/zh-hk/bangkok/chao-phraya-river" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a647356e0001658cfb6/original.png?1759582819=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="The Spa at Mandarin Oriental, Bangkok" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.lrc.com.hk/LaneCrawford" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a112a1c4d00104c5634/original.png?1759582736=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="LRC" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.thehousecollective.com/en/the-upper-house/" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a6409bbc50014fe2361/original.png?1759582819=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="Upper House" />
+      </a>
+
+      <a class="h-full aspect-4/3 snap-start" href="https://www.hyatt.com/grand-hyatt/zh-HK/hkggh-grand-hyatt-hong-kong?src=prop_misc_hkggh_other_fnbminisite_hotelhome-button_tc" target="_blank" rel="noopener">
+        <img class="w-full h-full object-contain object-center"
+          src="https://img.shoplineapp.com/media/image_clips/68e11a64a45fc4001286f1f9/original.png?1759582819=&owner_id=5abb8aaf4e22a6744f0004f7"
+          alt="Grand Hyatt Hong Kong" />
+      </a>
+
+    </div>
+
+    <!-- 按鈕 -->
+    <button
+      class="next bg-primary-80 size-[75px] shrink-0 rounded-full justify-center items-center cursor-pointer prev [display:none] sm:flex disabled:opacity-75 disabled:cursor-not-allowed"
+      type="button" title="next">
+      <div class="icon icon-arrow-right size-13 bg-neutral-0! ml-1"></div>
+    </button>
+  </div>
+
+  <div class="border-t border-primary-100 mx-3 sm:mx-15 mt-0 sm:mt-12"></div>
+</section>

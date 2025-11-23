@@ -1,0 +1,154 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.home__carousel {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.home__carousel .img-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+
+  animation: step-move calc(6s * 2) steps(2) infinite;
+}
+
+.home__carousel .img {
+  width: 100dvw;
+  height: 100dvh;
+  object-fit: cover;
+  object-position: center center;
+
+  animation: tween-move 6s ease-in infinite;
+}
+
+@keyframes step-move {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(calc(-1 * 2 * 100dvw));}
+}
+
+@keyframes tween-move {
+  0% {transform: translateX(0);}
+  15%,100% {transform: translateX(calc(-1 * 100dvw));}
+}
+
+/* ---------- */
+.home__gallery {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.home__gallery .card {
+  flex: 1;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 200ms ease-in-out;
+}
+
+.home__gallery input[type="radio"] {
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  overflow-anchor: none;
+}
+
+.home__gallery .card .bg {
+  height: 100%;
+}
+
+.home__gallery .card .bg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* 裁切並保持比例 */
+  object-position: left center;
+}
+
+.home__gallery .card .title {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  color: white;
+  writing-mode: vertical-lr;
+}
+
+/* 預設所有卡片等寬 */
+.home__gallery .card .bg {
+  flex: 1;
+}
+
+/* 當對應的 radio 被選中，直接放大外層 label（card） */
+.home__gallery input[type="radio"]:checked + label.card {
+  flex: 5;
+}
+
+
+.vdm-btn {
+  background-color: rgba(154, 131, 82, 0.8);
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home__brand-carousel {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.home__brand-carousel .viewport {
+  position: relative;
+  width: 60dvw;
+  height: 120px;
+  overflow: hidden;
+}
+
+.home__brand-carousel .viewport .track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.home__brand-carousel .viewport .track .img-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: max-content;
+  padding: 0 25px;
+}
+
+.home__brand-carousel .viewport .track a {
+  height: 100%;
+  width: fit-content;
+}
+
+.home__brand-carousel .viewport .track img {
+  height: 100%;
+}
+
+.scrollbar-

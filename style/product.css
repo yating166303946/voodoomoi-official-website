@@ -1,0 +1,36 @@
+
+/* related Products-list */
+.ProductDetail-relatedProducts-list .Product-item {
+  flex-direction: column;
+  flex-wrap: initial;
+  flex-basis: 25%;
+  width: 25%;
+  padding: 0 10px 30px 10px; 
+}
+
+@media screen and (max-width: 767px) {
+  .ProductDetail-relatedProducts-list .Product-item {
+    flex-basis: 50%; 
+  }
+}
+
+/* product list */
+.ProductList-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0; 
+}
+
+.ProductList-list .Product-item {
+  flex-direction: column;
+  flex-wrap: initial;
+  flex-basis: 33.3%;
+  width: 33.3%; 
+}
+
+@media screen and (max-width: 767px) {
+  .ProductList-list .Product-item {
+    flex-basis: 50%; 
+  } 
+}

@@ -1,0 +1,77 @@
+{
+  "products": {
+    "search": {
+      "no_result": "Sorry, related product(s) of \"{{ keyword }}\" cannot be found."
+    }
+  },
+  "shopline_translations": {
+    "themes": {
+      "blog": {
+        "home": "Home",
+        "blog_list_page": "Blog list page"
+      }
+    }
+  },
+  "nav": {
+    "btn_message": "Contact Us",
+    "btn_sign_in": "Login",
+    "btn_account": "My Account",
+    "btn_cart": "My Cart",
+    "btn_search": "Search"
+  },
+  "footer": {
+    "links_service": {
+      "title": "Orders and Assistance",
+      "contact_us": "Contact Us",
+      "returns_and_refunds": "Returns and Refunds",
+      "terms_and_details": "Terms"
+    },
+    "links_about": {
+      "title": "About VÖODÖOMÖI",
+      "philosophy": "Our Philosophy",
+      "team": "The Team",
+      "journey": "Our Story",
+      "cooperation": "Partners",
+      "esg_commitment": "ESG Commitment"
+    },
+    "esg_purpose": {
+      "title": "Environmental Sustainability",
+      "subtitle1": "Unwavering Principles",
+      "content1": "We are committed to using ECOCERT certified organic ingredients, and strictly refuse animal testing and the addition of parabens.",
+      "subtitle2": "Sustainable Future",
+      "content2": "At VÖODÖOMÖI, we believe beauty should be enduringly sustainable. We select FSC-certified recyclable packaging materials and strive to minimize single-use plastics and reduce our carbon footprint."
+    },
+    "subscribe": {
+      "title": "Stay informed! Subscribe to receive exclusive updates on VÖODÖOMÖI's products, services, events, and educational workshops.",
+      "placeholder1": "Enter your email",
+      "placeholder2": "Enter your phone number",
+      "btn": "Subscribe VÖODÖOMÖI Newsletter"
+    }
+  },
+  "home": {
+    "slogan": {
+      "title": "VÖODÖOMÖI | Fragrance | Skin",
+      "content1": "Born from the lyrical rhythm of old French — Vœu de Moi, a wish whispered to oneself — VÖODÖOMÖI is a quiet invocation of beauty.",
+      "content2": "It invites you to journey beyond solitude, to awaken what lies dormant beneath skin and sentiment — a beauty entirely your own."
+    },
+    "gallery": {
+      "category1": "SKINCARE.",
+      "category2": "SCENT.",
+      "category3": "MOOD."
+    },
+    "hot_products": {
+      "title": "TODAY'S HIGHLIGHT"
+    },
+    "brand_story": {
+      "title": "BRAND STORY",
+      "content": "Conjured from VŒU DE MOI, the ultimate wish for self-fulfillment and self-love, VÖODÖOMÖI offers skin and body care solutions. The founder, Dr. Joseph Wan, believes in the neuro-sensory benefits of fragrance to mind and body, and crafts the full array of organic and fragrant skin and home products. His expertise in functional imaging and respiratory diseases enable him to explore the potentials of the liaison in between olfaction and holistic wellness.",
+      "button": "About VÖODÖOMÖI"
+    },
+    "logos_eshop": {
+      "title": "E-COMMERCE PLATFORM"
+    },
+    "logos_partner": {
+      "title": "OUR PARTNERS"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<footer class="bg-primary-100 w-dvw py-[85px]">
+  <div class="flex flex-wrap justify-between mx-auto text-neutral-0 w-[clamp(313px,55vw,930px)]">
+    <div class="basis-full md:basis-1/2 mb-5 md:mb-0 flex-1 max-w-[322px] flex flex-wrap justify-between">
+      <div class="basis-full md:basis-1/2 flex-1 max-w-[118px]">
+        <div class="text-body-serif-semibold">{{ 'footer.links_service.title' | translate }}</div>
+        <div class="border-b border-solid border-neutral-0 my-[10px]"></div>
+        <div class="text-caption-serif-semibold">
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com">{{ 'footer.links_service.contact_us' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com/about/policy">{{ 'footer.links_service.returns_and_refunds' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com/about/terms">{{ 'footer.links_service.terms_and_details' | translate }}</a></div>
+        </div>
+      </div>
+
+      <div class="basis-full md:basis-1/2 flex-1 max-w-[118px]">
+        <div class="text-body-serif-semibold">{{ 'footer.links_about.title' | translate }}</div>
+        <div class="border-b border-solid border-neutral-0 my-[10px]"></div>
+        <div class="text-caption-serif-semibold">
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com">{{ 'footer.links_about.philosophy' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com/pages/team-1">{{ 'footer.links_about.team' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com/pages/press">{{ 'footer.links_about.journey' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com/products">{{ 'footer.links_about.cooperation' | translate }}</a></div>
+          <div><a class="text-neutral-0! hover:underline!" href="https://www.voodoomoi.com">{{ 'footer.links_about.esg_commitment' | translate }}</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="basis-full md:basis-1/2 mb-5 md:mb-0 flex-1 max-w-[300px]">
+      <span class="text-caption-serif-semibold">{{ 'footer.subscribe.title' | translate }}</span>
+      <div class="bg-neutral-0 flex items-center h-[34px] text-caption-serif-semibold text-primary-100 px-4 mb-2">
+        <input
+          type="text"
+          placeholder="{{ 'footer.subscribe.placeholder1' | translate }}"
+          class="placeholder-primary-100 outline-none w-full"
+          />
+      </div>
+      <div class="bg-neutral-0 flex items-center h-[34px] text-caption-serif-semibold text-primary-100 px-4 mb-2">
+        <input 
+          type="text"
+          placeholder="{{ 'footer.subscribe.placeholder2' | translate }}" 
+          class="placeholder-primary-100 outline-none w-full"
+          />
+      </div>
+      <div class="border border-solid border-neutral-0 text-caption-serif-semibold px-2 py-1">
+        {{ 'footer.subscribe.btn' | translate }}
+      </div>
+    </div>
+
+    <div class="text-neutral-0 basis-full">
+      <div class="w-[max(322px,16.7vw)]">
+        <div class="text-body-serif-semibold">{{ 'footer.esg_purpose.title' | translate }}</div>
+        <div class="border-b border-solid border-neutral-0 my-[10px]"></div>
+        <div class="text-caption-serif-semibold">
+          <div>{{ 'footer.esg_purpose.subtitle1' | translate }}</div>
+          <div>{{ 'footer.esg_purpose.content1' | translate }}</div>
+          <div>{{ 'footer.esg_purpose.subtitle2' | translate }}</div>
+          <div>{{ 'footer.esg_purpose.content2' | translate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {%  comment  %}
+    <!-- 網店分頁編輯footer樣式有限，故在這裡完全客製，此處註解原 -->
+    {% if shop.custom_footer != blank %}
+      <div class="Footer-grids">
+        {{ shop.custom_footer }}
+      </div>
+    {% else %}
+    {% endif %}
+  {% endcomment %}
+</footer>
