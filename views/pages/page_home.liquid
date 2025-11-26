@@ -1,4 +1,14 @@
 <!-- Hero Carousel -->
+{% if shop.current_locale.code == "zh-hant" %}
+  {% assign btnXmas = "聖誕禮盒預購中" %}
+  {% assign btnHandcream = "探索護手系列" %}
+  {% assign btnCandle = "探索蠟燭系列" %}
+{% else %}
+  {% assign btnXmas = "Seasonal Offerings Pre-Order Now" %}
+  {% assign btnHandcream = "Hand Cream Collection" %}
+  {% assign btnCandle = "Aromatic Candles Collection" %}
+{% endif %}
+
 <section class="bg-primary-60 aspect-375/420 md:aspect-none w-full md:h-dvh overflow-hidden mx-auto">
   <div id="hero-carousel" class="flex h-full w-max">
     <a class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw data-[link='']:cursor-default! relative"
@@ -10,23 +20,35 @@
 
       <button
         class="absolute bottom-10 md:bottom-25 left-1/2 -translate-x-1/2 text-center w-[85vw] md:w-[20.3vw] border border-neutral-0 py-3 px-6 group hover:bg-neutral-0 transition-all duration-500 cursor-pointer">
-        <span
-          class="text-body-sans text-neutral-0 group-hover:text-[#9A8352] transition-all duration-500 tracking-wider">聖誕禮盒預購中</span>
+        <b
+          class="text-body-sans text-neutral-0 group-hover:text-primary-100 transition-all duration-500 tracking-wider">{{ btnXmas }}</b>
       </button>
     </a>
 
-    <a class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw data-[link='']:cursor-default!"
-      href="javascript:void(0);" data-link="">
+    <a class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw data-[link='']:cursor-default! relative"
+      href="javascript:void(0);" data-link="https://www.voodoomoi.com/pages/hand-cream-series">
       <img class="w-full h-full object-cover object-center"
         src="https://img.shoplineapp.com/media/image_clips/6908bd1873cda5000b58dbc7/original.JPG?1762180375=&owner_id=5abb8aaf4e22a6744f0004f7"
         alt="banner" />
+
+      <button
+        class="absolute bottom-10 md:bottom-25 left-1/2 -translate-x-1/2 text-center w-[85vw] md:w-[20.3vw] border border-neutral-0 py-3 px-6 group hover:bg-neutral-0 transition-all duration-500 cursor-pointer">
+        <b
+          class="text-body-sans text-neutral-0 group-hover:text-primary-100 transition-all duration-500 tracking-wider">{{ btnHandcream }}</b>
+      </button>
     </a>
 
-    <a class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw data-[link='']:cursor-default!"
-      href="javascript:void(0);" data-link="">
+    <a class="shrink-0 aspect-375/420 md:aspect-none h-full md:w-dvw data-[link='']:cursor-default! relative"
+      href="javascript:void(0);" data-link="https://www.voodoomoi.com/pages/candle-series">
       <img class="w-full h-full object-cover object-center"
         src="https://img.shoplineapp.com/media/image_clips/6908bd18f3aebd000c8bdc26/original.JPG?1762180375=&owner_id=5abb8aaf4e22a6744f0004f7"
         alt="banner" />
+      
+        <button
+        class="absolute bottom-10 md:bottom-25 left-1/2 -translate-x-1/2 text-center w-[85vw] md:w-[20.3vw] border border-neutral-0 py-3 px-6 group hover:bg-neutral-0 transition-all duration-500 cursor-pointer">
+        <b
+          class="text-body-sans text-neutral-0 group-hover:text-primary-100 transition-all duration-500 tracking-wider">{{ btnCandle }}</b>
+      </button>
     </a>
 
     <!-- 補第一張 -->
@@ -40,7 +62,7 @@
       <button
         class="absolute bottom-10 md:bottom-25 left-1/2 -translate-x-1/2 text-center w-[85vw] md:w-[20.3vw] border border-neutral-0 py-3 px-6 group hover:bg-neutral-0 transition-all duration-500 cursor-pointer">
         <span
-          class="text-body-sans text-neutral-0 group-hover:text-[#9A8352] transition-all duration-500 tracking-wider">聖誕禮盒預購中</span>
+          class="text-body-sans text-neutral-0 group-hover:text-primary-100 transition-all duration-500 tracking-wider">{{ btnXmas }}</span>
       </button>
     </a>
   </div>
@@ -81,7 +103,7 @@
 <section>
   <div id="gallery" class="flex w-full h-[375px] sm:h-dvh">
     <div
-      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer open"
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow [&.open]:cursor-pointer open"
       data-url="https://www.voodoomoi.com/pages/skin-care">
       <img class="w-full h-full object-cover object-left"
         src="https://img.shoplineapp.com/media/image_clips/69082b75b70cf500181fc80e/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
@@ -89,14 +111,14 @@
       <span
         class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory1 }}</span>
       <button
-        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer in-[.open]:hidden"
         title="grow">
         <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
       </button>
     </div>
 
     <div
-      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer"
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow [&.open]:cursor-pointer"
       data-url="https://www.voodoomoi.com/pages/home-fragrance">
       <img class="w-full h-full object-cover object-left"
         src="https://img.shoplineapp.com/media/image_clips/69082b75ba39480018a5c785/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
@@ -104,14 +126,14 @@
       <span
         class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory2 }}</span>
       <button
-        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer in-[.open]:hidden"
         title="grow">
         <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
       </button>
     </div>
 
     <div
-      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow-1 [&.open]:cursor-pointer"
+      class="card relative w-25 sm:w-40 h-full transition-[flex] duration-700 ease-in-out [&.open]:grow [&.open]:cursor-pointer"
       data-url="/">
       <img class="w-full h-full object-cover object-left"
         src="https://img.shoplineapp.com/media/image_clips/69082b7569f50e000cdbd1ec/original.JPG?1762143092=&owner_id=5abb8aaf4e22a6744f0004f7"
@@ -119,7 +141,7 @@
       <span
         class="text-h2 sm:text-h1 absolute top-10 sm:top-12 left-12 sm:left-20 -translate-x-1/2 text-neutral-0 [writing-mode:vertical-lr]">{{ galleryCategory3 }}</span>
       <button
-        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer [.open_&]:hidden"
+        class="card-btn absolute top-4/5 sm:top-1/2 left-12 sm:left-20 -translate-x-1/2 -translate-y-1/2 text-5xl cursor-pointer in-[.open]:hidden"
         title="grow">
         <div class="icon icon-arrow-left size-9 sm:size-16 bg-neutral-0!"></div>
       </button>
