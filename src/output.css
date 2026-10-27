@@ -9,7 +9,6 @@
       "Courier New", monospace;
     --color-neutral-100: #000000;
     --color-black: #000;
-    --color-white: #fff;
     --spacing: 0.25rem;
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
@@ -211,6 +210,9 @@
   .-top-4 {
     top: calc(var(--spacing) * -4);
   }
+  .-top-\[14px\] {
+    top: calc(14px * -1);
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -225,6 +227,9 @@
   }
   .top-\[58px\] {
     top: 58px;
+  }
+  .-right-\[18px\] {
+    right: calc(18px * -1);
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
@@ -388,6 +393,10 @@
   .size-13 {
     width: calc(var(--spacing) * 13);
     height: calc(var(--spacing) * 13);
+  }
+  .size-\[20px\] {
+    width: 20px;
+    height: 20px;
   }
   .size-\[75px\] {
     width: 75px;
@@ -758,11 +767,18 @@
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
   .text-h1 {
     font-size: var(--text-h1);
   }
   .text-h2 {
     font-size: var(--text-h2);
+  }
+  .leading-\[20px\] {
+    --tw-leading: 20px;
+    line-height: 20px;
   }
   .leading-\[34px\] {
     --tw-leading: 34px;

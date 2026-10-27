@@ -121,9 +121,9 @@
 
         <!-- Cart panel toggle -->
         <li class="text-caption-serif-semibold">
-          <a class="flex gap-x-2 cursor-pointer CartPanel-toggleButton sl-cart-toggle">
+          <a class="flex gap-x-2 cursor-pointer CartPanel-toggleButton sl-cart-toggle relative">
             <div class="size-5 icon icon-cart [#nav-bar[data-page=home]:not(.scrolled)_&]:bg-neutral-0"></div>
-            <span class="Cart-count sl-cart-count"></span>
+            <span class="Cart-count sl-cart-count absolute text-[11px] size-[20px] leading-[20px] text-center bg-primary-100 rounded-full text-neutral-0 -top-[14px] -right-[18px]"></span>
             <div class="text-primary-100 inline-block align-bottom mt-1 [#nav-bar[data-page=home]:not(.scrolled)_&]:text-neutral-0">{{ 'nav.btn_cart' | translate }}</div>
           </a>
         </li>

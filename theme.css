@@ -122,9 +122,14 @@ select.form-control {
 
 .CartPanel-header {
   width: 100%;
-  background-color: #795548;
+  background-color: #9A8352;
   padding: 20px;
   float: left; }
+
+/* 購物車項目文字 (覆蓋) */
+.cart-panel-content .cart-item .cart-item-content {
+  color: #000000;
+}
 
 .CartPanel-hint {
   padding: 15px; 
@@ -485,7 +490,7 @@ select.form-control {
 	left: -9px;
 	font-family:'Noto Sans TC', sans-serif;;}
 
-.CartPanel-toggleButton {
+/* .CartPanel-toggleButton {
   position: relative; }
   .CartPanel-toggleButton .Cart-count {
     position: absolute;
@@ -495,11 +500,11 @@ select.form-control {
     height: 20px;
     line-height: 20px;
     text-align: center;
-    background-color: #990000;
+    background-color: #9A8352;
     border-radius: 10px;
     color: white;
     right: -18px;
-    top: -14px; }
+    top: -14px; } */
 
 .NavigationBar.mod-mobile {
   height: 65px; 
