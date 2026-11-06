@@ -973,11 +973,12 @@ select.form-control {
 
 .ProductDetail-product-info {
   font-size: 14px; }
-  .ProductDetail-product-info .Product-title {
+  /* .ProductDetail-product-info .Product-title {
     padding-top: 0;
     /*/*font-family: chekiangshukesung;*/*/
     font-size: 32px;
-    color: #795548; }
+    color: #795548; 
+  } */
   .ProductDetail-product-info .price {
     font-size: 24px;
     color: #795548; }
@@ -1577,12 +1578,13 @@ p, p a, p span, h4, h4 a, h4 span, h5, h5 a, th, td, button, input, .btn-custom,
   font-family: "Cormorant Garamond", 'Noto Sans TC', sans-serif, '微軟正黑體';
   }
   .ProductDetail-product-info .Product-summary {
-    margin: 0;
+    /* margin: 0;
     line-height: 1.5;
     padding-bottom: 14px;
     color: #333;
     white-space: break-spaces;
-    word-break: break-all; }
+    word-break: break-all;  */
+  }
   .ProductDetail-product-info .Product-summary + hr {
       margin: 0; }
     .ProductDetail-product-info .Product-summary ~ product-available-info .product-available-info {
