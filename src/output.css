@@ -27,6 +27,7 @@
     --color-primary-80: #9A8352CC;
     --color-primary-60: #C2B597;
     --color-neutral-0: #FFFFFF;
+    --color-text-secondary: #757575;
     --font-size-base: 1rem;
     --text-h1: clamp(2rem, 1.875vw, 2.5rem);
     --text-h2: clamp(1.6rem, 1.46vw, 2rem);
@@ -195,6 +196,9 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
   .absolute {
     position: absolute;
   }
@@ -288,6 +292,9 @@
       max-width: 96rem;
     }
   }
+  .m-0 {
+    margin: calc(var(--spacing) * 0);
+  }
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
   }
@@ -341,6 +348,9 @@
   }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-9 {
+    margin-bottom: calc(var(--spacing) * 9);
   }
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
@@ -751,6 +761,9 @@
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
   }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
   }
@@ -791,6 +804,12 @@
   .text-nowrap {
     text-wrap: nowrap;
   }
+  .break-all {
+    word-break: break-all;
+  }
+  .whitespace-break-spaces {
+    white-space: break-spaces;
+  }
   .text-black {
     color: var(--color-black);
   }
@@ -800,11 +819,17 @@
   .text-neutral-0\! {
     color: var(--color-neutral-0) !important;
   }
+  .text-neutral-100 {
+    color: var(--color-neutral-100);
+  }
   .text-primary-100 {
     color: var(--color-primary-100);
   }
   .text-primary-100\! {
     color: var(--color-primary-100) !important;
+  }
+  .text-text-secondary {
+    color: var(--color-text-secondary);
   }
   .placeholder-primary-100 {
     &::placeholder {
