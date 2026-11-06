@@ -1,4 +1,4 @@
-function startCarousel (carouselId) {
+function startLogoCarousel (carouselId) {
     const root = document.getElementById(carouselId);
     const container = root.querySelector('.carousel-container');
     const prevBtn = root.querySelector('.prev');
@@ -29,11 +29,11 @@ function startCarousel (carouselId) {
 }
 
 // 電商平台
-startCarousel("brand-carousel")
+// startLogoCarousel("brand-carousel")
 
 // 合作夥伴
-startCarousel("cooperate-carousel")
-
+startLogoCarousel("cooperate-carousel")
+        
 
 async function initCarousel (carouselRootSelector) {
   const root = document.querySelector(carouselRootSelector)
@@ -111,64 +111,120 @@ async function initCarousel (carouselRootSelector) {
 }
 
 
-function initImgCarousel (carouselId) {
-    const carousel = document.getElementById(carouselId)
-    let index = 0
-    let slideCount = carousel.children.length
-    let slideInterval = null
-    const scrollbarWidth = 5
+function initImgCarousel(carouselId) {
+  const carousel = document.getElementById(carouselId)
+  const slides = carousel.querySelectorAll('a')
+  const scrollbarWidth = 5
+  let slideCount = slides.length
+  let slideInterval = null
+  let index = 0
 
-    function updateTransform() {
-      const width = window.innerWidth - scrollbarWidth
-      carousel.style.transform = `translateX(${-width * index}px)`
+  function updateTransform() {
+    const width = window.innerWidth
+    carousel.style.transform = `translateX(${-width * index - scrollbarWidth}px)`
+  }
+
+  function nextSlide() {
+    const width = window.innerWidth
+    index = index + 1
+
+    carousel.style.transition = 'transform 1s ease-in-out'
+    carousel.style.transform = `translateX(${-width * index - scrollbarWidth}px)`
+
+    if (index === slideCount - 1) {
+      window.addEventListener('transitionend', reset, { once: true })
     }
+  }
 
-    function nextSlide() {
-      const width = window.innerWidth - scrollbarWidth
-      index = index + 1
+  function reset() {
+    index = 0
+    carousel.style.transition = 'none'
+    updateTransform()
+  }
 
-      carousel.style.transition = 'transform 1s ease-in-out'
-      carousel.style.transform = `translateX(${-width * index}px)`
+  // 啟動自動播放
+  function startCarousel() {
+    if (slideInterval) clearInterval(slideInterval)
+    slideInterval = setInterval(nextSlide, 6000)
+  }
 
-      if (index === slideCount - 1) {
-        window.addEventListener('transitionend', reset, { once: true })
+  // 輪播項點擊事件產生器
+  function createClickHandler(link) {
+    return function handleSlideClick(event) {
+      // 如果點擊目標是按鈕，阻止冒泡
+      if (event.currentTarget.tagName === 'BUTTON') {
+        event.stopPropagation()
+      } else {
+        event.preventDefault()
+      }
+
+      window.location.href = link
+    }
+  }
+
+  // 將點擊監聽器添加到每個輪播項
+  slides.forEach(slide => {
+    const link = slide.getAttribute('data-link').trim()
+
+    if (link) {
+      const clickHandler = createClickHandler(link)
+      slide.addEventListener('click', clickHandler)
+
+      // 如果輪播項包含自訂按鈕
+      const customBtn = slide.querySelector('button')
+      if (customBtn) {
+        customBtn.addEventListener('click', clickHandler)
       }
     }
+  })
 
-    function reset() {
-      index = 0
-      carousel.style.transition = 'none'
-      updateTransform()
-    }
+  // 視窗大小變更時重新計算距離
+  window.addEventListener('resize', () => {
+    carousel.style.transition = 'none'
+    updateTransform()
+  })
 
-    // 啟動自動播放
-    function startCarousel() {
-      if (slideInterval) clearInterval(slideInterval)
-      slideInterval = setInterval(nextSlide, 6000)
-    }
-
-    // 視窗大小變更時重新計算距離
-    window.addEventListener('resize', () => {
-      carousel.style.transition = 'none'
-      updateTransform()
-    })
-
-    // 啟動
-    startCarousel()
+  // 啟動
+  startCarousel()
 }
 
 // 首頁 hero 輪播
 initImgCarousel("hero-carousel")
 
 // 首頁 Grllery
-const galleryBtns = document.querySelectorAll('#gallery .card-btn')
-const galleryCards = document.querySelectorAll('#gallery .card')
+// const galleryCards = document.querySelectorAll('#gallery .card')
+// const galleryBtns = document.querySelectorAll('#gallery .card-btn')
 
+// 處理按鈕點擊（展開卡片）
+/*
 galleryBtns.forEach((btn, index) => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation()
     galleryCards.forEach(c => c.classList.remove('open'))
-
-    const card = galleryCards[index]
-    card.classList.add('open')
+    galleryCards[index].classList.add('open')
   })
+})
+
+// 處理卡片點擊（判斷是否跳轉）
+galleryCards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    // 如果點擊的是按鈕，不處理
+    if (e.target.closest('.card-btn')) {
+      return
+    }
+
+    // 如果卡片是 open 狀態，才跳轉
+    if (card.classList.contains('open')) {
+      const url = card.getAttribute('data-url')
+      window.location.href = url
+    }
+  })
+})
+*/
+
+// 首頁 Brand Story
+const brandStoryBtn = document.getElementById('brand_story_btn')
+brandStoryBtn.addEventListener('click', function() {
+  // 跳轉到『關於好魔』頁
+  window.location.href = 'https://www.voodoomoi.com/pages/philosophy';
 })
